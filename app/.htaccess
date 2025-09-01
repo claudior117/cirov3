@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteRule prueba.html http://www.google.es [R]
+
+
+<IfModule authz_core_module>
+    Require all denied
+</IfModule>
+<IfModule !authz_core_module>
+    Deny from all
+</IfModule>

@@ -1,0 +1,169 @@
+ .cara-sel {
+    border-radius: 7px;
+    background-color: #fc260a;
+    opacity: 0.3;
+  }
+  
+  .diente-sel {
+    border-radius: 7px;
+    background-color: #4199d3;
+    opacity: 0.25;
+    border: 3px solid #103f86; /* Borde azul fuerte (puedes cambiar el color) */
+    border-radius: 20%;   
+  }
+ 
+
+
+  /* Contenedor del formulario */
+  .container-v3 {
+    background-color: #f0f9ff;
+    padding: 2rem 2.5rem;
+    border-radius: 2px;
+   
+    width: 100%;
+    
+  }
+  
+/* Título */
+.titulo-v3 {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600; /* Semi-bold (para equilibrio) o 700 (bold) */
+    color: #69779e; /* Azul oscuro saturado (contraste con el fondo pastel) */
+    font-size: 1.3rem; /* 32px - ajustable según jerarquía */
+    letter-spacing: -0.5px; /* Compacta ligeramente */
+    margin-bottom: 0.5rem;
+  }
+
+  /* Título del formulario */
+  .form-container h2 {
+    margin-bottom: 1.5rem;
+    color: #333;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  
+  /* Campos del formulario */
+  .form-group {
+    margin-bottom: 1.2rem;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.4rem;
+    color: #57534e;
+    font-weight: 500;
+  }
+  
+  input,
+  select,
+  textarea {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+  }
+  
+  input:focus,
+  select:focus,
+  textarea:focus {
+    border-color: #007BFF;
+    outline: none;
+  }
+  
+  /* Botón */
+  button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+/*===============================================================*/
+
+  /* Tablas */
+
+  /* Contenedor de la tabla (opcional) */
+.table-container-v3 {
+    background-color: #f0f9ff; /* Azul pastel de fondo */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Estilos base de la tabla */
+  .table-v3 {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Cabecera de la tabla */
+  .th-v3 {
+    background-color: #334155; /* Gris azulado */
+    color: white;
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    margin: 5px;
+  }
+  
+  /* Celdas del cuerpo */
+  tbody td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #e5e7eb; /* Borde sutil gris */
+    font-family: 'Inter', sans-serif;
+    color: #1f2937; /* Gris oscuro para texto */
+  }
+  
+  /* Filas alternas (opcional) */
+  tbody tr:nth-child(even) {
+    background-color: #f9fafb; /* Gris muy claro */
+  }
+  
+  /* Hover en filas */
+  tbody tr:hover {
+    background-color: #f0f9ff; /* Azul pastel al pasar el mouse */
+    transition: background-color 0.2s;
+  }
+  
+  /* Bordes redondeados (solo esquinas exteriores) */
+  table tr:first-child th:first-child {
+    border-top-left-radius: 10px;
+  }
+  table tr:first-child th:last-child {
+    border-top-right-radius: 10px;
+  }
+  table tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+  }
+  table tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+  }
+
+
+  /*===========================================*/
+
+  .recuadro-v3 {
+        border: 1px solid #c7d2fe; /* Borde azul claro (tono intermedio) */
+        border-radius: 8px;        /* Esquinas redondeadas */
+        overflow: hidden;          /* Para que el borde contenga la tabla */
+        }

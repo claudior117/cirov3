@@ -1,0 +1,156 @@
+Usuarios Soporte:
+
+Profesonal -> Valentin   (19982001)
+
+Admin -> Claudio (19982001)
+
+hash 1111 -> b59c67bf196a4758191e42f76670ceba 
+
+
+Versionado
+VXX.YY.ZZ SSS
+       XX  -> Cambios grandes
+       YY  -> Modificacion BD
+       ZZ  -> Cambios menores(si son nuevas funcionalidades se detallan) 
+       SSS -> Cambio secuencial ascendente realizado
+
+       2.11.01 001  Pasamos el proyecto para usar composer(se incorporo modpdf y phpspreedsheet) 
+       2.11.03 002  Reportes de Items Minimos y Os
+       2.11.04 003  Reportes: se cambio dompdf(inestable en el servidor) por reportes html  
+       2.11.05 004  Se cambiaron todos los reportes de dompdf a HTML para Profesionales 
+       2.11.06 005  Desinstalacion de dompdf y htmlpdf2 con composer
+       2.11.07 006  Reparacion liquidaciones no aparece boton guardar en algunas resoluciones 
+       2.11.08 007  Reparacion Agregar cantidad de items en OS, minimos y liq 
+
+       2.12.01 008  Pagos ->Agregar id_os en Vta_Movimientos 
+                         Agregar descuento, id_mov_vta_dto, id_mov_vta_rbo, estado_pago en Liquidaciones 
+       2.12.02 009  Modificaciones de diseño y poder imprimir con ctrl+p
+       2.13.01 010  Agrega fecha_rbo , fecha_dto, fecha_transf, id_mov_transf en liquidaciones (predeterminado 2023-01-01)
+       2.13.02 011  Agrega cantidad y fecha actu de liquidaciones en liq.
+       2.13.03 012  Agrega profesional en liq. Admin
+       2.13.04 013  Agrega expande tabla 
+       2.13.05 014  Expande tabla en liquidaciones Admin
+       2.13.06 015  Modifica Retenciones manualmente
+       2.13.07 016  Retenciones mensuales verifica emision por profesional
+
+       2.14.01 017  Incrementos  Liquidaciones Agregar -> incremento(float 0), id_mov_vta_inc(int 0), fecha_inc(date 2023-01-01)
+
+       2.15.01 018  Facturacion por Cliente y no por OS. Agrega en movimientos_profesionales id_clientep (int 0)  
+       2.15.02 019  Agrega prestador(cliente) en la consulta de estado de cuenta de profesionales tanto para el prof como admin 
+       2.15.03 020  Modificar pagos y NC/ND para hacerla por prestador y no por OS 
+       2.15.04 021  Solucionar errores con el id_os y corrige impresión factura
+       2.16.01 022  Permite facturación percapita. Clientes Agregar -> percapita (varchar 1 "N")  
+                                                Vta_movimientos Agregar -> percapita (varchar 1 "N")   
+                 La facturación percapita factura un valor fijo indicado por la prestadora, los profesionales     
+                 facturan la prestaciones normalmente(el circulo les paga por estas), si hay diferencia 
+                 se puede aplicar mas el mes próximo. La diferencia entre lo facturado por los profesionales
+                 y lo asignado por la prestadora se guarda en otros_conceptos
+       2.16.02 023  Agrega prestador en view de OS 
+       2.17.01 024  Soluciona decimales en aranceles. Item_os Modificar ->precio(Double)
+                                                   Liquidaciones Modificar -> Importe(Double) Incremento(Double)
+                                                   Liq_Items Modificar ->Float a Double
+                                                   Prof_Movimientos Modificar ->Float a Double     
+       2.17.02 025  Agrega ajustes previos a la facturacion en liquidaciones    
+       2.17.03 026  Modifica factura para que ajuste el importe con incrementos y descuentos 
+       2.17.04 027  Modificaciones en expande y comprime
+       2.17.05 028  Flujo Caja
+       2.17.06 029  Corrige retenciones mes
+       
+       2.17.07 030  Transferencias
+       2.17.08 031  Transferencias2
+       2.17.09 032  Transferencias3
+       2.17.10 033  Transferencias4
+       2.17.11 034  Transferencias 5 version beta a produccion
+       2.17.12 035  Gráficos
+       2.17.13 036  DashBoard collapse
+       2.17.14 037  Corrige error en grafico
+       2.17.15 038  Soluciona error en Transferencias
+       2.17.16 039  Agrega Liquidacion Mensual
+       2.17.17 040  Agrega Reporte para imprimir liqudacion mensual
+       2.17.18 041  Cambios varios
+       2.17.19 042  Liquidacion mensual (transferida, sin transferir)
+       
+       2.18.01 043  Modifica retenciones para que lo realice sobre todas las liquidaciones pagas y sin retener
+                 Agregar en liquidaciones -> retencion_hecha varchar(1) "N" 
+                                          -> id_mov_vta_ret Int "0"
+                                          -> fecha_ret Date "current_time_stamp"    
+                                          -> Agregar comprobante 55 Rbo por Retenciones 
+       2.18.02 044  Ver comprobantes
+       2.18.03 045  Cambiar forma de hacer trasferencias y retenciones
+       2.18.04 046  Agrega historia de movimientos 
+       2.18.05 047  Mejora estado cuenta profesionales
+       2.18.06 048  Mensajes de facturacion   
+
+       2.19.01 049  Inicia sistema Logs
+                            Agregar tabla logs_tipos 
+                            Agregar tabla logs 
+       2.19.02 050  Cálculo de Descuentos en Recibos
+                     Logs en Recibos    
+                     *** Actualizar tabla Logs_tipos  
+       
+       2.20.01 051   Bonos/Anticipos 
+                            Agregar en Liquidaciones ->bonos_anticipos double(0), id_mov_vta_bono Int(0), fecha_bono Date(current_time_stamp)
+                             *** Actualizar tabla Logs_tipos  
+                             *** Agregar NC Bonos (301) en Vta_Tipos_movimientos
+       2.20.02 052      Modifica Transferencias
+       2.20.03 053      Agregar columna Bonos/Anticipos en liquidaciones Profesionales
+       2.20.04 054      Modifica transferencias para incorporar bonos 
+       2.20.05 055      Informe de recibos por profesional 
+       2.20.06 056      Ver comprobante 
+       2.20.07 057      Ver fecha rbo en trasnferencias 
+       2.20.08 058      Informe resumen liquidaciones por periodo 
+
+       2.21.01 059      Agrega otros tributos en factura(separa importe percapita que se agregaba a otros_tributos) 
+                            Agregar en vta_movimientos ->importe_percapita double(0)
+                             *** En todas las facturas percapitas pasar el importe de otros_conceptos a importe_percapita  
+       2.22.01 060      Renovacion de clave de Usuarios
+                            Agregar en Usuarios  -> contraseña_anterior VarChar 255
+                                                 -> antiguedad_contraseña Int(0)
+                            *** Ejecutar sql update usuarios set 'contraseña_anterior' = 'contraseña'
+       2.22.02 061      Modifica resumen liquidacion(parte 1)  
+       2.22.03 062      Modifica informe percapita    
+       2.22.04 063      Profesionales modifica grafica dashborad informe por año    
+
+       2.23.01 064      Agrega el control de saldo impago en las retenciones cuando la trasnferencia no alcanza para cubrirla<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+                     y se deberan incorporar en la próxima transferencia. 
+                     Agrega en Vta_movimientos  -> saldo_impago Double(0)  
+       2.23.02 065      Modifica Informe Liquidacion Mensual                                                                        
+       2.23.03 066      Agrega Informe Liquidacion Mensual a profesionales y su reporte  
+
+       2.24.01 067      Informe de Cuenta Percapita
+                             Agregar en Vta_Movimientos  -> ubicacion_percapita VarChar 1 (N)
+                             ejecutar UPDATE `vta_movimientos` SET ubicacion_percapita = "E" where percapita = "S";      
+                             Agregar en vta_tipo_movimiento id_tipomov 120  NdInt 
+       2.24.02 068   Informe Cuadro de liquiedaiones mensuales(admin)
+       2.24.03 069   Corrige orden en Minimos profesionalesI
+       2.24.04 070   Modifica formula cálculo retenciones IOMA 
+       2.24.05 071   Corrige error de seguridad 
+       2.24.06 072   Corrige generacion retenciones y transferencias ioma colon 
+       2.24.07 073   Version final de liquidaciones mensual 
+       2.24.08 074   Corrige retenciones mensuales, ioma con incrementos
+
+       2.25.01 075   Agrega visualizador Normas de Trabajo
+                             Agregar en OS  -> pdf_normas VarChar 255 (N) (Nombre del archivo, N no tiene)
+                             crear carpeta "normas" en public y pasar los pdf de las normas
+                             Poner en la tabla de os el nombre del archivo pdf de cada norma 
+                             ***Pasar toda la tabla os y la carpeta normas ***
+       2.25.02 076   Agrega visualizador Normas de Trabajo en sesion administrador                      
+
+       2.26.01 077   Facturacion directa del profesional a la OS
+                     En el sistema seguirá igual, exepto que la factura del circulo con todas
+                     las liquidaciones de los profesionales se hará en el punto de venta 99(interno)
+                            Agregar en OS  -> factura_el_profesional VarChar 1 (N) (Si o No)
+                            ***Agregar punto de venta 99 con comprobantes 1 y 50***
+       2.26.02 078   Corrige informe de Retenciones Mensuales 
+       2.26.03 079   Corrige imprersion informe de Retenciones Mensuales 
+
+
+VERSIÓN 3
+
+        3.01.01 001   Inicializa Proyecto V3 (Test) 
+                      Agregar tabla Pacientes
+                      Agregar tabla Atenciones
+        3.02.01 002   Modifica tabla de items
+                            Agrega en items --> aplica (S sin pieza  P solo pieza C pieza y cara Z zona)              
+                            Ejecutar proceso para preconfigurar el campo aplica 
+        3.02.02 003   Termina controles de carga de atenciones                   

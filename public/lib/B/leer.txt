@@ -1,0 +1,5 @@
+Bootstrap  v5.2.3 (https://getbootstrap.com/)
+
+Incluido en el templete, usamos esta version para todo el sistema
+
+<link href="lib/templete/Dewi/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">

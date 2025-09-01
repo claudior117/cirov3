@@ -1,0 +1,305 @@
+.btn_mc_1{
+    background: #fd3800;
+    border-color: #ff4a17;
+    color:white;
+}
+
+.btn_mc_mini_volver{
+    background: #d71111fd;
+    border-color: #d71111fd;
+    color:white;
+    text-decoration: none;
+    border-radius: 15%;
+    padding:6px;
+    margin:3px;
+
+
+}
+
+.btn_mc_mini_agregar{
+    background: #6fff00a0;
+    border-color: #6fff00bc;
+    color:white;
+    text-decoration: none;
+    border-radius: 15%;
+    padding: 6px 11px 6px 11px;
+    margin:3px;
+}
+
+.btn_tbl_mini_agregar{
+    background: #6fff00a0;
+    border-color: #6efd00a0;
+    color:white;
+    text-decoration: none;
+    border-radius: 15%;
+    padding: 3px 3px 3px 3px;
+    margin:2px;
+}
+
+
+.btn_mc_mini_mostrar{
+        background: #0073fffd;
+        border-color: #0073fffd;
+        color:white;
+        text-decoration: none;
+        border-radius: 15%;
+        padding:6px;
+        margin:3px;
+
+
+}
+
+.btn_tbl_mini_mostrar{
+    background: #0073fffd;
+    border-color: #0073fffd;
+    color:white;
+    text-decoration: none;
+    border-radius: 15%;
+    padding:3px;
+    margin:2px;
+
+
+}
+
+
+.btn_mc_mini_editar{
+    background: #d70bb5fd;
+    border-color: #d70bb5fd;
+    color:white;
+    text-decoration: none;
+    border-radius: 15%;
+    padding:6px;
+    margin:3px;
+
+
+}
+
+.btn_tbl_mini_editar{
+    background: #d70bb5fd;
+    border-color: #d70bb5fd;
+    color:white;
+    text-decoration: none;
+    border-radius: 15%;
+    padding:3px;
+    margin:1px;
+
+
+}
+
+
+.btn_mc_mini_borrar{
+    background: #ff1111fd;
+    border-color: #ff1111fd;
+    color:white;
+    text-decoration: none;
+    border-radius: 15%;
+    padding:6px;
+    margin:3px;
+
+
+}
+
+
+.btn_tbl_mini_borrar{
+    background: #ff1111fd;
+    border-color: #ff1111fd;
+    color:white;
+    text-decoration: none;
+    border-radius: 15%;
+    padding:3px;
+    margin:2px;
+
+
+}
+
+
+.btn_mc_mini_imprimir{
+    background: #0e8b1ffd;
+    border-color: #0e8b1ffd;
+    color:white;
+    text-decoration: none;
+    border-radius: 15%;
+    padding:6px;
+    margin:3px;
+
+
+}
+
+.btn_tbl_mini_imprimir{
+    background: #0e8b1ffd;
+    border-color: #0e8b1ffd;
+    color:white;
+    text-decoration: none;
+    border-radius: 15%;
+    padding:3px;
+    margin:2px;
+
+
+}
+
+
+.btn_mc_mini_file{
+    background: #080808fd;
+    border-color: #080808fd;
+    color:white;
+    text-decoration: none;
+    border-radius: 15%;
+    padding:6px;
+    margin:3px;
+
+
+}
+
+
+
+.datosFooter{
+    background: #213443;
+    border-color: #213443;
+    color:white;
+    padding:1px;
+    margin:1px;
+    display:inline;
+
+
+}
+
+
+/*====Fondos Modal====*/ 
+.fondo {
+    background-color: rgba(102, 89, 89, 0.509);
+}
+
+.fondoborrar {
+    background-color: rgba(231, 16, 16, 0.219);
+}
+
+
+
+
+
+
+
+
+/*====FIN FONDOS MODAL */
+
+
+.HeaderFondo{
+    background-color:#15222B ;
+}
+
+.TextoCiro{
+    color:#101112;
+    font-size: 11px;
+}
+
+
+.LineaTituloP{
+    background-color:#ff6565;
+    color:#ffffeb;
+    font-size: 15px;
+    opacity:0.81;
+    padding: 17px;
+    border-radius: 5px;
+    margin-top:11px;
+
+
+}
+
+.LineaTituloP2{
+    background-color:#ecf1eec6;
+    color:rgb(32, 25, 99);
+    font-size: 15px;
+    opacity:0.81;
+    padding: 17px;
+    border-radius: 5px;
+    margin-top:11px;
+
+}
+.LineaTituloA{
+    background-color:#3b8bf4e8;
+    font-size: 15px;
+    color:darkmagenta;  
+    opacity:0.81;
+}
+
+.formCiro{
+    background-color:orange;
+    color:dimgrey;
+    margin:3px;
+    border-radius: 3px;
+
+}
+
+
+.fondoInput{
+    background-color:#ffca99;
+    border-radius: 3px;
+    border:solid #ff6961 0.5px;
+    font-size:13px;  
+
+}
+
+
+.inputcss{
+    background-color:#ffca99;
+    border-radius: 3px;
+    border:solid #ff6961 0.5px;
+    font-size:13px;  
+
+}
+
+
+.tablacss{
+    border-radius: 3px ;
+    border:solid #fff4e1;
+    font-size:13px;  
+    background-color: #ffe4e1;
+
+}
+
+.cabtablacss{
+    font-size:13px;  
+    background-color:#edb8fa;
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
+    
+
+}
+
+.labelcss{
+    font-size:13px;  
+    color:#95b8f6;
+    text-align: center;
+   
+    
+
+}
+
+.modalcss{
+    background-color: #ffe4e1;
+}
+
+.headermodalcss{
+    background-color:#ff6565;
+    color:#ffffeb;
+    font-size: 11px;
+    opacity:0.91;
+    padding: 11px;
+    border-radius: 5px;
+    margin:5px;
+     
+}
+
+
+/*stylos odontograma*/
+
+#odontograma-container {
+    position: relative;
+    display: inline-block;
+  }
+  .diente {
+    position: absolute;
+    border: 2px solid transparent;
+    cursor: pointer;
+  }

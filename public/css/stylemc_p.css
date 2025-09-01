@@ -1,0 +1,54 @@
+/*====Estilos para imprimir====*/ 
+
+@page {
+        size: A4 portrait; /*standar A4*/
+           
+}
+
+@page :first {
+    margin-top: 1cm;
+    margin-left: 1cm;
+    margin-right: 1cm;
+}
+   
+ 
+BODY {
+    font: 8pt Verdana, Geneva, Arial, Helvetica, sans-serif;
+    margin: 0 0 0 0px;
+    background-color: #ffffff;
+ }
+ .container{
+     text-align: left;
+     width: 700px;
+     margin: auto;
+ }
+ .cabecera{
+    visibility:hidden;
+    display: none;
+ }
+ 
+ 
+ .pie{
+    background-color: #cccccc;
+    padding: 3 10 3 10px;
+    text-align:right;
+    clear: both;
+ }
+ 
+ .principal{
+     background-color: #ffffff;
+     padding: 0 0 0 0px;
+     width: 700px;
+     float: left;
+ }
+ 
+ .principal table{
+    background-color: #ffffff;
+    width: 700px;
+    border: 2px solid #cccccc;
+    font-size:10pt;
+ }
+
+
+ 
+

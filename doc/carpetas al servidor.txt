@@ -1,0 +1,17 @@
+==================
+Carpetas a subir
+=================
+writable
+system
+public
+app
+
+==========================================
+Archivos a modificar entre local y servidor
+============================================
+.env
+
+app/config/app.php
+app/config/database.php
+
+public/js/ciro.js
