@@ -21,9 +21,12 @@ $(document).ready(function () {
 
    
   
-    $('#idBtMostrar').click(function () {
+    $('#idBtGenerar').click(function () {
+        //alta
+        limpiarform21()
+        generar()
         
-        buscaDatos();        
+             
    })
 
    $('#idSelEstado').change(function () {
@@ -53,6 +56,17 @@ $(document).ready(function () {
         }
     })
     
+
+    $('#idFR21').submit(function(e) {
+        e.preventDefault();
+        var o = confirm("Confirme para generar liquidaciones de atenciones pendientes")
+        if (o == true) {
+            generarLiq();
+            limpiarform21();
+        }
+    })
+
+
 
     $('#idBtImprimir').click(function () {
         $('#modal-header3').removeClass('fondo', 'fondomodificar', 'fondoborrar').addClass('fondoagregar')
@@ -88,6 +102,17 @@ $(document).ready(function () {
     $(document).on( 'click', '.comprimehi', function(){
         var idmovvtarenglon = parseInt(($(this).attr("id")).substring(2)) 
         comprime_historia_venta(idmovvtarenglon, parseInt($(this).parents("tr").attr("id")))  //le paso el id
+    })
+   
+    $(document).on( 'click', '.expandeat', function(){
+        var idmovvtarenglon = parseInt(($(this).attr("id")).substring(2)) 
+        expande_atenciones(idmovvtarenglon, parseInt($(this).parents("tr").attr("id")))  //le paso el id del mov vta y la fila de la tabla
+    })
+       
+    
+    $(document).on( 'click', '.comprimeat', function(){
+        var idmovvtarenglon = parseInt(($(this).attr("id")).substring(2)) 
+        comprime_atenciones(idmovvtarenglon, parseInt($(this).parents("tr").attr("id")))  //le paso el id
     })
    
 
@@ -154,7 +179,7 @@ function buscaDatos(){
                         ff = ""
                         fp = ""
                         ich = ""
-                        lineaBotones = "<td class='centrartexto'><a id='btnTblMostrar' class='btn_tbl_mini_mostrar'  href='BuscarItems/" + value.id_liq + "' data-toggle='tooltip' data-placement='top' title='" +  $btnazul + "'> <i class='bi bi-stack-overflow'></i></a><a id='btnTblEnviar' class ='btn_tbl_mini_editar' href='javascript:enviarLiq(" + value.id_liq + ")' data-toggle='tooltip' data-placement='top' title='" +  $btnvioleta + "' ><i class='bi bi-box-arrow-up-right'></i></a><a id='btnTblBorrar' class ='btn_tbl_mini_borrar' href='javascript:borrarLiq(" + value.id_liq + ")' data-toggle='tooltip' data-placement='top' title='" +  $btnrojo + "'><i class='bi bi-trash-fill'></i></a></td>" 
+                        lineaBotones = "<td class='centrartexto'><a id='btnTblMostrar' class='btn_tbl_mini_mostrar'  href='BuscarItems/" + value.id_liq + "' data-toggle='tooltip' data-placement='top' title='" +  $btnazul + "'> <i class='bi bi-stack-overflow'></i></a><a id='btnTblEnviar' class ='btn_tbl_mini_editar' href='javascript:enviarLiq(" + value.id_liq + ")' data-toggle='tooltip' data-placement='top' title='" +  $btnvioleta + "' ><i class='bi bi-box-arrow-up-right'></i></a><a id='btnTblBorrar' class ='btn_tbl_mini_borrar' href='javascript:borrarLiq(" + value.id_liq + ")' data-toggle='tooltip' data-placement='top' title='" +  $btnrojo + "'><i class='bi bi-trash-fill'></i></a><i class='bi bi-plus-square btn_tbl_mini_ver expandeat' id='at"+value.id_liq+"' data-toggle='tooltip' data-placement='top' title='Detalle de atenciones'></i></td>" 
                         lineaEstado = "<td class='centrartexto'><b>" + $estado + "</b></td>" 
                          
                         break
@@ -163,7 +188,7 @@ function buscaDatos(){
                            ff = ""
                            fp = ""
                            ich = "<input type='checkbox' class='check_liq form-check-input'> </input>"
-                           lineaBotones = "<td class='centrartexto'><a id='btnTblMostrar' class='btn_tbl_mini_mostrar'  href='BuscarItems/" + value.id_liq  + "' data-toggle='tooltip' data-placement='top' title='" +  $btnazul + "'><i class='bi bi-stack-overflow'></i></a><i class='bi bi-plus-square btn_tbl_mini_borrar expande' id='ex"+value.id_liq+"' data-toggle='tooltip' data-placement='top' title='Detalle de items liquidados'></i></td>" 
+                           lineaBotones = "<td class='centrartexto'><a id='btnTblMostrar' class='btn_tbl_mini_mostrar'  href='BuscarItems/" + value.id_liq  + "' data-toggle='tooltip' data-placement='top' title='" +  $btnazul + "'><i class='bi bi-stack-overflow'></i></a><i class='bi bi-plus-square btn_tbl_mini_borrar expande' id='ex"+value.id_liq+"' data-toggle='tooltip' data-placement='top' title='Resumen de items liquidados'></i><i class='bi bi-plus-square btn_tbl_mini_ver expandeat' id='at"+value.id_liq+"' data-toggle='tooltip' data-placement='top' title='Detalle de atenciones'></i></td>" 
                            lineaEstado = "<td class='centrartexto'><b>" + $estado + "</b></td>" 
                            break
                       case "F":
@@ -172,7 +197,7 @@ function buscaDatos(){
                             fp = ""
                              
                             ich = ""
-                            lineaBotones = "<td class='centrartexto'><a id='btnTblMostrar' class='btn_tbl_mini_mostrar'  href='BuscarItems/" + value.id_liq + "' data-toggle='tooltip' data-placement='top' title='" +  $btnazul + "'><i class='bi bi-stack-overflow'></i></a><i class='bi bi-plus-square btn_tbl_mini_borrar expande' id='ex"+value.id_liq+"' data-toggle='tooltip' data-placement='top' title='Detalle de items liquidados'></i><i class='bi bi-columns-gap btn_tbl_mini_editar expandehi' id='hi"+value.id_liq+"' data-toggle='tooltip' data-placement='top' title='Comprobantes asociados'></i></td>" 
+                            lineaBotones = "<td class='centrartexto'><a id='btnTblMostrar' class='btn_tbl_mini_mostrar'  href='BuscarItems/" + value.id_liq + "' data-toggle='tooltip' data-placement='top' title='" +  $btnazul + "'><i class='bi bi-stack-overflow'></i></a><i class='bi bi-plus-square btn_tbl_mini_borrar expande' id='ex"+value.id_liq+"' data-toggle='tooltip' data-placement='top' title='Resumen de items liquidados'></i><i class='bi bi-columns-gap btn_tbl_mini_editar expandehi' id='hi"+value.id_liq+"' data-toggle='tooltip' data-placement='top' title='Comprobantes asociados'></i><i class='bi bi-plus-square btn_tbl_mini_ver expandeat' id='at"+value.id_liq+"' data-toggle='tooltip' data-placement='top' title='Detalle de atenciones'></i></td>" 
                             lineaEstado = "<td class='centrartexto'><b>" + $estado + "</b></td>" 
                             break
                       case "P":
@@ -180,7 +205,7 @@ function buscaDatos(){
                                 ff = value.fecha_facturado
                                 fp =  value.fecha_transf
                                 ich = ""
-                                lineaBotones = "<td class='centrartexto'><a id='btnTblMostrar' class='btn_tbl_mini_mostrar'  href='BuscarItems/" + value.id_liq + "' data-toggle='tooltip' data-placement='top' title='" +  $btnazul + "'><i class='bi bi-stack-overflow'></i></a><i class='bi bi-plus-square btn_tbl_mini_borrar expande' id='ex"+value.id_liq+"' data-toggle='tooltip' data-placement='top' title='Detalle de items liquidados'></i><i class='bi bi-columns-gap btn_tbl_mini_editar expandehi' id='hi"+value.id_liq+"' data-toggle='tooltip' data-placement='top' title='Comprobantes asociados'></i></td>" 
+                                lineaBotones = "<td class='centrartexto'><a id='btnTblMostrar' class='btn_tbl_mini_mostrar'  href='BuscarItems/" + value.id_liq + "' data-toggle='tooltip' data-placement='top' title='" +  $btnazul + "'><i class='bi bi-stack-overflow'></i></a><i class='bi bi-plus-square btn_tbl_mini_borrar expande' id='ex"+value.id_liq+"' data-toggle='tooltip' data-placement='top' title='Resumen de items liquidados'></i><i class='bi bi-columns-gap btn_tbl_mini_editar expandehi' id='hi"+value.id_liq+"' data-toggle='tooltip' data-placement='top' title='Comprobantes asociados'></i><i class='bi bi-plus-square btn_tbl_mini_ver expandeat' id='at"+value.id_liq+"' data-toggle='tooltip' data-placement='top' title='Detalle de atenciones'></i></td>" 
                                 lineaEstado = "<td class='centrartexto'><b>" + $estado + "</b></td>" 
                                 break
                             
@@ -231,14 +256,20 @@ function buscaDatos(){
 
 function alta(){
     limpiarform()
-    
-
     $('#exampleModalLabel').text('Agregar Liquidación')
     $('#idInFun').val('A');
     $('#idNuId').val('0');
     $('#exampleModal').modal('show');
 
 }
+
+function generar(){
+    limpiarform21()
+    $('#idInFun21').val('A');
+    $('#idNuId21').val('0');
+    $('#exampleModal21').modal('show');
+}
+
 
 
 function modificarDatos(id){
@@ -290,7 +321,7 @@ function borrarLiq(id) {
    
     var o = confirm("Confirma borrar Liquidacion Id: " + id)
     if (o == true){
-       // window.location="/ciro/public/BorrarLiq/" + id;    
+       // window.location="/ciro/BorrarLiq/" + id;    
        window.location= site_url() + "BorrarLiq/" + id;
     
     }
@@ -304,10 +335,13 @@ function borrarLiq(id) {
 function limpiarform() {
     $('#idNuAño2').val(añoActual());
     $('#idNuMes2').val(mesActual());
-    
-  
-
 }
+
+function limpiarform21() {
+    $('#idNuAño21').val(añoActual());
+    $('#idNuMes21').val(mesActual());
+}
+
 
 
 function insertarRegistro() {
@@ -334,6 +368,30 @@ function insertarRegistro() {
             }
         })
     }
+
+
+function generarLiq() {
+            $.ajax({
+                url: site_url() + "GenerarLiq",
+                async: false,
+                type: "POST",
+                data: $("#idFR21").serialize(),
+                dataType: "json",
+                success: function (respuesta) {
+                    if(respuesta!=0) {
+                            ciroMensaje("Se generaron " + respuesta + " liquidaciones", "success")
+                    }else{
+                            ciroMensaje("Imposible Actualizar. No se gueneraron liquidaciones", "warning")    
+                            
+                    }
+                    $('#exampleModal21').modal('hide');
+                    buscaDatos()
+    
+                }
+            })
+        }
+    
+
 
 
     
@@ -423,6 +481,52 @@ function insertarRegistro() {
     
     }
     
+
+
+
+    function expande_atenciones(idliq, fila){
+        if(idliq > 0){
+            
+            var lineabotones = ""      
+            var u = site_url() + "AtenLiqAx"
+            
+            $.ajax({
+                url: u,
+                type: "POST",
+                async:false,
+                data: {"idliq": idliq},
+                dataType: "json",
+                success: function (respuesta) {
+                    $.each(respuesta, function (key, value) {
+                       
+                        $("#"+fila).after("<tr style='background-color:#fffec2;' class='align-middle at" + idliq + "'><td></td><td></td>" + 
+                                "<td class=''>" + value.codigo + "</td>" +
+                                "<td class=''>" + value.desc_item.substring(0,50) + "</td>" +
+                                "<td class='text-end' >" +  parseInt(value.elemento) + value.cara +"</td>" +
+                                "<td class = 'text-end'>" + "$" + parseFloat(value.importe).toFixed(2)  + "</td>" +
+                                "<td class = 'text-end'>" + value.denominacion.substring(0, 30)  + "</td>" +
+                                "<td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>")
+                        
+                        $("#at"+idliq).addClass('bi bi-dash-square comprimeat' )	
+                        $("#at"+idliq).removeClass('bi bi-plus-square expandeat') 
+    
+                               
+                    })
+            }
+        })
+        }
+    }
+    
+    
+    
+    function comprime_atenciones(idliq, fila){
+    $(".at" + idliq).remove();
+    $("#at"+idliq).addClass('bi bi-plus-square expandeat')	
+    $("#at"+idliq).removeClass('bi bi-dash-square comprimeat') 
+    
+    }
+    
+
 
 
 

@@ -6,12 +6,12 @@ use CodeIgniter\Model;
 class OsItemsModel extends Model{
     protected $table      = 'items_os';
     protected $primaryKey = 'id_itemos';
-    protected $allowedFields = ['precio', 'coseguro', 'fecha_ult_actualizacion', 'id_item', 'id_os', 'codigo', 'desc_item', 'tasa_iva', 'cant_max_liq'];
+    protected $allowedFields = ['precio', 'coseguro', 'fecha_ult_actualizacion', 'id_item', 'id_os', 'codigo', 'desc_item', 'tasa_iva', 'cant_max_liq','activo'];
 
 
     public function buscarItemsOs($idl){
         //busca todos los items de una os
-        $s = "select * from items_os  inner join os on items_os.id_os = os.id_os where items_os.id_os = $idl order by codigo ";
+        $s = "select * from items_os  inner join os on items_os.id_os = os.id_os where items_os.id_os = $idl and activo = 1 order by codigo ";
         $db = db_connect();
         $cons = $db->query($s);
         return $cons->getResultArray();

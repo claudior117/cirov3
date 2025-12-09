@@ -133,7 +133,7 @@
 </main><!-- End #main -->
 
  <!-- JS -->
-<script src="<?= base_url(); ?>public/js/os/itemos.js"></script>
+<script src="<?= base_url(); ?>js/os/itemos.js"></script>
   
 
 

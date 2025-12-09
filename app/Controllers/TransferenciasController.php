@@ -12,7 +12,7 @@ use App\Models\VtaMovDetalleModel;
 use App\Models\VtaTipoMovModel;
 use App\Models\SistemaModel;
 use App\Models\MensajesModel;
-
+use App\Models\AtencionesModel;
 
 class TransferenciasController extends Controller{
     
@@ -110,6 +110,7 @@ class TransferenciasController extends Controller{
               $MTMov = new VtaTipoMovModel;
               $MMVta = new VtaMovModel;
               $MSis = new SistemaModel;
+              $MAte = new AtencionesModel;
               
       
               $r6 = $MTMov -> actualizaNumerador($pv, 201, $nc);
@@ -152,6 +153,9 @@ class TransferenciasController extends Controller{
                                     $dataP = ['fecha' => $fecha, 'importe' => $imp, 'tipo' => 201, 'estado' => 'X', 'periodo' => $periodo, 'ubicacionP' => 'H', 'id_os' => $valores['id_os'], 'id_liquidacion' => $valores['id_liquidacion'], 'id_mov_vta' => $idmovvta, 'id_profesional' =>$valorP['id_usuario'], 'detalle' => $detalle, 'origen' => $valores['cliente'] . "(CIRO)", 'destino' =>substr($valorP['nombre'], 0, 93), 'id_clientep' => $valores['id_cliente']] ;
                                     $r3 = $MMprof -> insert($dataP);
   
+                                    //actualizo atenciones
+                                    $r9 = $MAte -> actualizaPagoPorLiq($valores['id_liquidacion'], $fecha, $idmovvta);
+
                                     
                             }
                         
@@ -248,6 +252,8 @@ class TransferenciasController extends Controller{
                           //actualizo estado comprobante venta
                           $dataC = ["estado" => "P"];    
                           $r2 = $MVMov -> update($valor, $dataC); 
+
+                            
 
                         }
 

@@ -58,6 +58,10 @@ $routes->post('EnviarLiq', 'LiquidacionesController::enviarLiq'); //Enviar liqui
 $routes->get('FacturarLiq/(:any)/(:any)', 'FacturacionController::facturarLiq/$1/$2'); //Facturar liquidaciones 
 $routes->get('/ReporteLiq/(:any)', 'LiquidacionesController::reporteLiq/$1'); //imprime reporte liquidaciones
 
+$routes->post('/GenerarLiq', 'LiquidacionesController::Generar'); //Genera liquidaciones autoMATICAMENTE DESDE atenciones 
+
+
+
 
 //liquidaciones Admin
 $routes->get('/LiquidacionesA', 'LiquidacionesController::IndexA'); //Inicio liquidaciones 
@@ -169,6 +173,11 @@ $routes->get('/MinimosP', 'MinimosController::IndexP'); //Inicia Minimos Profe
 $routes->post('/MostrarMinP', 'MinimosController::getMin'); //Se usa el mismo que Admin 
 $routes->get('/ReporteMin', 'MinimosController::reporteMin2'); //imprime reporte
 
+//aRANCELES PROPIOS
+$routes->get('/ArancelesP', 'ArancelesPropiosController::Index'); //Inicia aranceles 
+$routes->post('BuscaAraProAx', 'ArancelesPropiosController::consultarAjax');
+$routes->post('/arapro/crudCIJx', 'ArancelesPropiosController::CrudCIAjax');  
+$routes->post('/arapro/ConsultarIdJx', 'ArancelesPropiosController::ConsultarIdAjax');  
 
 
 //selects
@@ -224,18 +233,31 @@ $routes->get('ReporteLiqMenP/(:any)/(:any)', 'InformesController::reporteLiqMen/
 
 //Pacientes
 $routes->get('/PacientesP', 'PacientesController::IndexP'); //Inicia Pacientes 
-$routes->post('BuscaPacienteAx', 'PacientesController::consultarDNIAjax'); //Busca Paciente por dni 
+$routes->post('BuscaPacienteAx', 'PacientesController::consultarAjax'); //busca paciente segun el tipo 
+$routes->post('pacientes/crudCIJx', 'PacientesController::CrudCIAjax');  
+$routes->post('/pacientes/ConsultarIdJx', 'PacientesController::ConsultarIdAjax');  
+$routes->get('pacaten/(:any)', 'AtencionesController::Index2/$1'); //permite cargar atenciones desde pacientes
+
+
 
 
 //Odontograma
-$routes->get('/OdontogramaP', 'OdontogramaController::Index'); //Inicia Odontograma 
+
 
 
 //Atenciones
+$routes->get('/AtencionesP', 'AtencionesController::Index'); //Inicia Odontograma 
 $routes->post('MostrarAtencionesAxP', 'AtencionesController::MostrarAtencionesAjax');  
-$routes->post('BorrarAtencionesAxP', 'AtencionesController::BorrarAtencionesAjax');
 $routes->post('AgregarAtencionesAxP', 'AtencionesController::AgregarAtencionesAjax');  
+$routes->post('AtenLiqAx', 'AtencionesController::AtencionesLiqAjax');  
+$routes->post('/atenciones/ConsultarIdJx', 'AtencionesController::ConsultarIdAjax');  
+$routes->post('/atenciones/crudCIJx', 'AtencionesController::CrudCIAjax'); 
+$routes->post('/atenciones/pagoAteIdJx', 'AtencionesController::PagoAteIdAjax'); 
 
+//historia clinica
+$routes->get('/HistoriaP', 'AtencionesController::Historia'); // 
+$routes->get('ReporteHisCli/(:any)/(:any)/(:any)', 'InformesController::reporteHisCli/$1/$2/$3'); //imprime reporte Liqudacion Mensual
+$routes->get('ReporteEstCue/(:any)/(:any)/(:any)', 'InformesController::reporteEstCue/$1/$2/$3'); //imprime reporte Liqudacion Mensual
 
 
 /*

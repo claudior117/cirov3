@@ -19,6 +19,7 @@ class LiquidacionesModel extends Model{
 
 
     public function getUltimoId(){
+       //no funciona
         $q = "select LAST_INSERT_ID() as idLiq ";
         $db = db_connect();
         $cons = $db->query($q);
@@ -263,8 +264,9 @@ public function agregarLiq($d){
     $db = db_connect();
     $q = "INSERT INTO liquidaciones(id_usuario, periodo, mes, año, estado, fecha_envio, fecha_facturado, fecha_ult_modificacion, id_os, factura, importe, id_mov_vta, id_mov_vta_dto,id_mov_vta_rbo, descuento, estado_pago, retencion_hecha, id_mov_vta_ret, fecha_ret, bonos_anticipos) VALUES (" . $d['id_usuario'] . ", " . $d['periodo'] . ", " . $d['mes'] . ", " . $d['año'] . ", 'B', '" . $fa . "', '" . $fa . "','". $fa . "', " . $d['id_os'] . ", 'A0000-00000000', 0,0,0,0,0,'N','N',0,'".$fa."',0)";
     $cons = $db->query($q);
-    $salida = $db->affectedRows();   
+    //$salida = $db->affectedRows();   
     //busco el id generado
+    $idl=0;
     if($cons){
         $q = "select LAST_INSERT_ID() as idLiq ";
         $cons = $db->query($q)->getRow();
@@ -287,8 +289,8 @@ public function agregarLiq($d){
     }
 
 
-
-    return $salida; //si no la agrega y 1 sila agrega
+    $salida = $idl; 
+    return $salida; //devuelve el id generado
 } 
 
 
@@ -313,6 +315,9 @@ public function borrarLiq($iL){
     $db = db_connect();
     $q = $db->query($s);
 
+    //actualizo si tiene atenciones
+    $s ="UPDATE atenciones  SET id_liquidacion=0, estado='S' where id_liquidacion=". $iL;
+    $q = $db->query($s);
 
     $datos = ["id_tipolog"=>3, "fecha"=>date("Y-m-d H:i:s"), "id_usuario"=>session('idUsuario'), "tabla"=>"Liquidaciones", "id_registro"=>$iL] ; 
     $MLog = new LogsModel;
@@ -351,6 +356,31 @@ public function actuLiqRet($fret, $idvtaret, $idprof){
     $q = $db->query($s);
     return $q; 
 }
+
+public function actualizaTotales($idl){
+    //sumarizo todos los items de la liq y actualizo el importe
+        $db = db_connect();
+
+        $q = "UPDATE liquidaciones l
+        SET l.importe = (
+            SELECT SUM(i.cantidad * i.pu)
+            FROM liq_items i
+            WHERE i.id_liquidacion = l.id_liq
+        )
+        WHERE l.id_liq = " . $idl;
+        $r2 = $db->query($q);
+
+
+        //cambio estado  atenciones
+        $q = "UPDATE atenciones a
+        JOIN liquidaciones l ON a.id_profesional = l.id_usuario
+        SET a.estado = 'L', a.id_liquidacion = " . $idl . " WHERE l.id_liq = " . $idl . " AND a.estado = 'S' AND l.id_os = a.id_os";    
+        $r3 = $db->query($q);
+}
+
+    
+
+
 
 
 

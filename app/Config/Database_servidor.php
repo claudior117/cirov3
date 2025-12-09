@@ -29,7 +29,7 @@ class Database extends Config
         'hostname' => 'localhost',
         'username' => 'aero',
         'password' => 's7VXRGBZ27E=',
-        'database' => 'ciro',
+        'database' => 'cirov3',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,

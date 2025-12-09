@@ -121,8 +121,8 @@
 
 
 <!-- JS -->
-<script src="<?= base_url(); ?>public/js/ciro.js"></script>  
-<script src="<?= base_url(); ?>public/js/liq/resumen.js"></script>
+<script src="<?= base_url(); ?>js/ciro.js"></script>  
+<script src="<?= base_url(); ?>js/liq/resumen.js"></script>
 
 <script>
     buscaDatos()

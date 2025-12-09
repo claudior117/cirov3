@@ -98,8 +98,8 @@
 
 
 <!-- JS -->
-<script src="<?= base_url(); ?>public/js/ciro.js"></script>
-<script src="<?= base_url(); ?>public/js/min/min.js"></script>
+<script src="<?= base_url(); ?>js/ciro.js"></script>
+<script src="<?= base_url(); ?>js/min/min.js"></script>
   
 
 

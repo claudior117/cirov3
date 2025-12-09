@@ -37819,7 +37819,7 @@ module.exports = {
     // There are lots of tables for Big5 and cp950. Please see the following links for history:
     // http://moztw.org/docs/big5/  http://www.haible.de/bruno/charsets/conversion-tables/Big5.html
     // Variations, in roughly number of defined chars:
-    //  * Windows CP 950: Microsoft variant of Big5. Canonical: http://www.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/WINDOWS/CP950.TXT
+    //  * Windows CP 950: Microsoft variant of Big5. Canonical: http://www.unicode.org/MAPPINGS/VENDORS/MICSFT/WINDOWS/CP950.TXT
     //  * Windows CP 951: Microsoft variant of Big5-HKSCS-2001. Seems to be never public. http://me.abelcheung.org/articles/research/what-is-cp951/
     //  * Big5-2003 (Taiwan standard) almost superset of cp950.
     //  * Unicode-at-on (UAO) / Mozilla 1.8. Falling out of use on the Web. Not supported by other browsers.
@@ -37836,7 +37836,7 @@ module.exports = {
     //                   http://www.ogcio.gov.hk/tc/business/tech_promotion/ccli/terms/doc/hkscs-2008-big5-iso.txt
     // 
     // Current understanding of how to deal with Big5(-HKSCS) is in the Encoding Standard, http://encoding.spec.whatwg.org/#big5-encoder
-    // Unicode mapping (http://www.unicode.org/Public/MAPPINGS/OBSOLETE/EASTASIA/OTHER/BIG5.TXT) is said to be wrong.
+    // Unicode mapping (http://www.unicode.org/MAPPINGS/OBSOLETE/EASTASIA/OTHER/BIG5.TXT) is said to be wrong.
 
     'windows950': 'cp950',
     'ms950': 'cp950',
@@ -52862,7 +52862,7 @@ var ENCODINGS = [
 // unicode
 ['utf16be', 'utf16be', 'utf16be', 'utf16be', 'utf16be', 'utf16be'],
 // macintosh
-// Mappings available at http://unicode.org/Public/MAPPINGS/VENDORS/APPLE/
+// Mappings available at http://unicode.org/MAPPINGS/VENDORS/APPLE/
 // 0	Roman                 17	Malayalam
 // 1	Japanese	            18	Sinhalese
 // 2	Traditional Chinese	  19	Burmese
@@ -52886,7 +52886,7 @@ var ENCODINGS = [
 // windows
 // Docs here: http://msdn.microsoft.com/en-us/library/system.text.encoding(v=vs.110).aspx
 ['symbol', 'utf16be', 'shift-jis', 'gb18030', 'big5', 'wansung', 'johab', null, null, null, 'utf16be']]; // Overrides for Mac scripts by language id.
-// See http://unicode.org/Public/MAPPINGS/VENDORS/APPLE/Readme.txt
+// See http://unicode.org/MAPPINGS/VENDORS/APPLE/Readme.txt
 
 var MAC_LANGUAGE_ENCODINGS = {
   15: 'maciceland',
@@ -56830,7 +56830,7 @@ var BBox = /*#__PURE__*/function () {
   }]);
   return BBox;
 }(); // Data from http://www.microsoft.com/typography/otspec/scripttags.htm
-// and http://www.unicode.org/Public/UNIDATA/PropertyValueAliases.txt.
+// and http://www.unicode.org/UNIDATA/PropertyValueAliases.txt.
 var UNICODE_SCRIPTS = {
   Caucasian_Albanian: 'aghb',
   Arabic: 'arab',

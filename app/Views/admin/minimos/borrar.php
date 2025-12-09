@@ -106,8 +106,8 @@
 
 
 <!-- JS -->
-<script src="<?= base_url(); ?>public/js/ciro.js"></script>
-<script src="<?= base_url(); ?>public/js/os/os.js"></script>
+<script src="<?= base_url(); ?>js/ciro.js"></script>
+<script src="<?= base_url(); ?>js/os/os.js"></script>
   
 
 

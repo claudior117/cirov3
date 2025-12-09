@@ -1,0 +1,29 @@
+Pasa todos los codigos minimos a la OS
+
+INSERT INTO items_os (id_os, precio, id_item, codigo, desc_item, aplica, precio, tasa_iva, coseguro, cant_max_liq, fecha_ult_actualizacion)
+SELECT 61, p.arancel, p.id_item, p.codigo, p.item, p.aplica, p.arancel, 21, 0,3,'2025-09-30' 
+FROM items p;
+
+donde 61 es el codigo de la os
+
+
+Agrega minimos a codigos propios
+INSERT INTO items_propios (id_profesional, itemp, codigop, preciop, aplicap)
+SELECT 2, p.item, CONCAT('61.', p.codigo), p.arancel, p.aplica
+FROM items p;
+
+2 es el profesional
+
+Actualizar segun S, P, C items de items_os
+UPDATE items_os
+SET aplica = 'S'
+WHERE SUBSTRING(codigo, 1, 2) = '01';
+
+UPDATE items_os
+SET aplica = 'C'
+WHERE SUBSTRING(codigo, 1, 2) = '02';
+
+UPDATE items_os
+SET aplica = 'P'
+WHERE SUBSTRING(codigo, 1, 2) <> '01' and SUBSTRING(codigo, 1, 2) <> '02';
+

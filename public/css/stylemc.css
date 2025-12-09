@@ -112,6 +112,18 @@
 
 }
 
+.btn_tbl_mini_ver{
+    background: hsla(32, 100%, 53%, 0.992);
+    border-color: hsla(32, 100%, 53%, 0.992);
+    color:white;
+    text-decoration: none;
+    border-radius: 15%;
+    padding:3px;
+    margin:2px;
+
+
+}
+
 
 .btn_mc_mini_imprimir{
     background: #0e8b1ffd;

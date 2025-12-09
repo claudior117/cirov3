@@ -69,6 +69,7 @@
                         <td>Cobertura</td>
                         <td>Coseguro</td>
                         <td>Fecha Actu</td>
+                        <td>Activo</td>
                         
                         
                         <!--<td>$.Deuda</td>-->
@@ -88,6 +89,7 @@
                                 echo("<td class='text-end' style='font-size:15px;'><b>". number_format($valores['precio'],2,".","") . "<b></td>");
                                 echo("<td class='text-end' style='font-size:15px;'><b>". number_format($valores['coseguro'],2,".","") . "<b></td>");
                                 echo("<td class='text-center'>". $valores['fecha_ult_actualizacion']. "</td>");
+                                echo "<td class='text-center'>" . ($valores['activo'] ? 'Sí' : 'No') . "</td>";
                                 echo("</tr>");
                                          
                             }
@@ -127,8 +129,8 @@
 </main><!-- End #main -->
 
 <!-- JS -->
-<script src="<?= base_url(); ?>public/js/ciro.js"></script> 
-<script src="<?= base_url(); ?>public/js/os/itemosP.js"></script> 
+<script src="<?= base_url(); ?>js/ciro.js"></script> 
+<script src="<?= base_url(); ?>js/os/itemosP.js"></script> 
 
   <?= $this->endSection(); ?> 
   

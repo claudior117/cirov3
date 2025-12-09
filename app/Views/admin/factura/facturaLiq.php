@@ -206,8 +206,8 @@
 
 
 <!-- JS -->
-<script src="<?= base_url(); ?>public/js/ciro.js"></script>
-<script src="<?= base_url(); ?>public/js/ventas/factLiq.js"></script>
+<script src="<?= base_url(); ?>js/ciro.js"></script>
+<script src="<?= base_url(); ?>js/ventas/factLiq.js"></script>
 
 
 

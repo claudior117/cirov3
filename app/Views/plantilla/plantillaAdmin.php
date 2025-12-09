@@ -8,39 +8,39 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="<?= base_url(); ?>public/lib/templete/Dewi/assets/img/favicon.png" rel="icon">
-  <link href="<?= base_url(); ?>public/lib/templete/Dewi/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="<?= base_url(); ?>lib/templete/Dewi/assets/img/favicon.png" rel="icon">
+  <link href="<?= base_url(); ?>lib/templete/Dewi/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Boostrap -->
-  <link href="<?= base_url(); ?>public/lib/templete/Dewi/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?= base_url(); ?>lib/templete/Dewi/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="<?= base_url(); ?>public/lib/templete/Dewi/assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="<?= base_url(); ?>public/lib/templete/Dewi/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="<?= base_url(); ?>public/lib/templete/Dewi/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="<?= base_url(); ?>public/lib/templete/Dewi/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="<?= base_url(); ?>public/lib/templete/Dewi/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="<?= base_url(); ?>public/lib/templete/Dewi/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="<?= base_url(); ?>public/lib/sweetalert2/sweetalert2.min.css" rel="stylesheet">
+  <link href="<?= base_url(); ?>lib/templete/Dewi/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="<?= base_url(); ?>lib/templete/Dewi/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="<?= base_url(); ?>lib/templete/Dewi/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="<?= base_url(); ?>lib/templete/Dewi/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="<?= base_url(); ?>lib/templete/Dewi/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="<?= base_url(); ?>lib/templete/Dewi/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="<?= base_url(); ?>lib/sweetalert2/sweetalert2.min.css" rel="stylesheet">
 
   <!-- JqueryS -->
-<script src="<?= base_url(); ?>public/lib/jquery/jquery-3.6.3.min.js"></script>
+<script src="<?= base_url(); ?>lib/jquery/jquery-3.6.3.min.js"></script>
 
 <!-- SweetAlert2 -->
-<script src="<?= base_url(); ?>public/lib/sweetalert2/sweetalert2.min.js"></script>
+<script src="<?= base_url(); ?>lib/sweetalert2/sweetalert2.min.js"></script>
 
 
 
 
 
   <!-- Template Main CSS File -->
-  <link href="<?= base_url(); ?>public/lib/templete/Dewi/assets/css/style.css" rel="stylesheet">
+  <link href="<?= base_url(); ?>lib/templete/Dewi/assets/css/style.css" rel="stylesheet">
 
   <!-- ESTILOS PROPIOS -->
-<link href="<?= base_url(); ?>public/css/stylemc.css" rel="stylesheet">
+<link href="<?= base_url(); ?>css/stylemc.css" rel="stylesheet">
 
 
 
@@ -95,7 +95,7 @@ table {
  
  <div class="container d-flex align-items-center justify-content-between">
  
-   <a href="#" class="logo"><img src="<?= base_url(); ?>public/img/circulo.png" alt="" class=""></a> 
+   <a href="#" class="logo"><img src="<?= base_url(); ?>img/circulo.png" alt="" class=""></a> 
    <h1 class="logo"><a href="#">VERSIÓN 3 (TEST)</a></h1> 
    
    <!-- Uncomment below if you prefer to use an image logo -->
@@ -205,17 +205,17 @@ table {
 
 
 <!-- Vendor JS Files -->
-<script src="<?= base_url(); ?>public/lib/templete/Dewi/assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="<?= base_url(); ?>public/lib/templete/Dewi/assets/vendor/aos/aos.js"></script>
-  <script src="<?= base_url(); ?>public/lib/templete/Dewi/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="<?= base_url(); ?>public/lib/templete/Dewi/assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="<?= base_url(); ?>public/lib/templete/Dewi/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="<?= base_url(); ?>public/lib/templete/Dewi/assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="<?= base_url(); ?>lib/templete/Dewi/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="<?= base_url(); ?>lib/templete/Dewi/assets/vendor/aos/aos.js"></script>
+  <script src="<?= base_url(); ?>lib/templete/Dewi/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="<?= base_url(); ?>lib/templete/Dewi/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="<?= base_url(); ?>lib/templete/Dewi/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="<?= base_url(); ?>lib/templete/Dewi/assets/vendor/swiper/swiper-bundle.min.js"></script>
   
   <!-- Template Main JS File -->
-  <script src="<?= base_url(); ?>public/lib/templete/Dewi/assets/js/main.js"></script>
+  <script src="<?= base_url(); ?>lib/templete/Dewi/assets/js/main.js"></script>
   <!--  JS Globales -->
-  <script src="<?= base_url(); ?>public/js/ciro.js"></script>
+  <script src="<?= base_url(); ?>js/ciro.js"></script>
 
 
 

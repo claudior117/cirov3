@@ -149,8 +149,8 @@
 </main><!-- End #main -->
 
  <!-- JS  --> 
- <script src="<?= base_url(); ?>public/js/ciro.js"></script>
- <script src="<?= base_url(); ?>public/js/ret/retmesman.js"></script>
+ <script src="<?= base_url(); ?>js/ciro.js"></script>
+ <script src="<?= base_url(); ?>js/ret/retmesman.js"></script>
  
  
 

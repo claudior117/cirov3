@@ -1,0 +1,50 @@
+Necesito te pongas en el rol de un testing de software y me crees un plan de casos pruebas para una aplicacion de cargas de atenciones odontologicas segun las reglas que te explico y el detalle de la interzaz
+
+=== INTERFAZ ===
+
+ input tipo number para dni
+
+ radio "Codigos OS" y radio "Codigos Propios" : se puede selecciona uno u otro
+
+ select "Items": contiene todos los codigos e items de la Obra social o Propios
+
+ select "Pieza dentarias" : tiene los numeros de las piezas dentarias humanas, iuncluye el 00 para cuandio no hay que seleccinar pieza
+
+ 7 Checkbox para seleccionar las cara de la pieza dentaria: pueden estar todos desactivados. V Vestibular, I Incisal, D Distal, P Palatina, O Oclusal, L Lingual, M Mesial
+
+ Boton para ageregar la atencion odontologica    	  	
+
+
+=== FIN INTERFAZ ===
+
+
+
+== REGLAS ===
+
+1) Se ingresa dni del paciente, solo datos numericos, si no existe muestra mensaje "Paciente inexiustente"
+
+2) Con el DNI correcto el sistema muestra Nombre y APELLIDO DEL PACIENTEy su obra social
+
+3)Carga de atenciones:  
+
+se PUEDE SELECCIONAR radio "Codigos OS" O radio "Codigos Propios". Segun seleccione el profesional se cargan en el select "Items" los codigos correspondientes
+
+Los codigos tienen como formato XX.YY.ZZ. Los codigos propios empiezan con 61.YY.ZZ 
+
+Los codigos de Obra Social que empiezan con 01,05,08,07.01 y los  10.02,10.03,10.06,10.07,10.13,10.14,10.15,10.16,10.20 no requieren indicar ni Pieza ni Cara dentaria (), por lo tanto el valor de pieza debe ser 00 y cara vacio
+
+Los codigos de Obra social que empiezan con 02 obligatoriamente deben llevar Pieza(distinto de 00) y Cara. En caras no puede suceder I con O, ni P con L.     
+
+Los codigos que empiezan con 03,04,06,07,09 y los codigos 10.01,10.05,10.08,10.09,10.10,10.11,10.12,10.17,10.18,10.19 llevan solo pieza y cara vacio.
+
+== FIN DE REGLAS ==
+
+Asegurate de tener casos de prueba para todas las posibildades. 
+
+Deberias mostrarme una tabla o planilla con el caso de prueba a realizar, el resultado esperado, y una columna vacia para poner el resultado de la prueba. Cualquier sugerencia que tenegas ponerla a consideracion.   
+
+
+
+
+    
+    	      

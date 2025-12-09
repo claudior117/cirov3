@@ -106,7 +106,7 @@
 
 
 <!-- JS -->
-<script src="<?= base_url(); ?>public/js/os/os.js"></script>
+<script src="<?= base_url(); ?>js/os/os.js"></script>
   
 
 

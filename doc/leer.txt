@@ -153,4 +153,21 @@ VERSIÓN 3
         3.02.01 002   Modifica tabla de items
                             Agrega en items --> aplica (S sin pieza  P solo pieza C pieza y cara Z zona)              
                             Ejecutar proceso para preconfigurar el campo aplica 
-        3.02.02 003   Termina controles de carga de atenciones                   
+        3.02.02 003   Termina controles de carga de atenciones 
+        3.02.03 004   Agrega historiass clinicas
+        3.02.04 005   En liquidaciones agrega atenciones
+        3.03.01 006   Agregar  tabla Items Propios   
+        3.03.02 007   Agrega en atenciones codigos propios
+                            Agrega en astenciones --> tipo_codigo (P propios  O Obra social)              
+        3.04.01 008   Agrega en atenciones observaciones
+                            Agrega en atenciones --> obs(varchar 50)   
+        3.04.02 009   Permite modificar observaciones y precio en atenciones propias   
+        3.05.01 010   Agrega estado de pago en atenciones
+                           Agrega en atenciones --> estado_pago(varchar 1)  P Paga // N No paga
+                                                --> fecha_pago(date)  si esta impaga tiene la fecha de carga
+                                                --> id_rbo_pago(int) solo para las tipo OS, las propia 0    
+        3.05.02 011   Corrige variables para funcionar en producción
+        
+        3.06.01 012   Agrega token en atenciones      
+                            Agrega en atenciones --> token(varchar 20)  "0"
+                           

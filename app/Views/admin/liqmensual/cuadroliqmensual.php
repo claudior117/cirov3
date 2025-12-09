@@ -114,8 +114,8 @@
 
 
 <!-- JS -->
-<script src="<?= base_url(); ?>public/js/ciro.js"></script>  
-<script src="<?= base_url(); ?>public/js/liqmen/cuadroliqmenA.js"></script>
+<script src="<?= base_url(); ?>js/ciro.js"></script>  
+<script src="<?= base_url(); ?>js/liqmen/cuadroliqmenA.js"></script>
 
 
 

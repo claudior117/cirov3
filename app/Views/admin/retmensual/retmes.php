@@ -143,8 +143,8 @@
 </main><!-- End #main -->
 
  <!-- JS --> 
- <script src="<?= base_url(); ?>public/js/ciro.js"></script>
- <script src="<?= base_url(); ?>public/js/ret/retmes.js"></script>
+ <script src="<?= base_url(); ?>js/ciro.js"></script>
+ <script src="<?= base_url(); ?>js/ret/retmes.js"></script>
   
  
  <!-- Modal Alta retenciones mensuales-->

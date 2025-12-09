@@ -10,7 +10,7 @@
 <?php
 
 
-$file = base_url() . 'public/normas/amsterdam.pdf';
+$file = base_url() . 'normas/amsterdam.pdf';
  
 $filename = 'amsterdam.pdf';
  

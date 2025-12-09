@@ -58,8 +58,8 @@
 
 <!-- JS -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="<?= base_url(); ?>public/js/ciro.js"></script>
-<script src="<?= base_url(); ?>public/js/inicio/inicioA.js"></script>
+<script src="<?= base_url(); ?>js/ciro.js"></script>
+<script src="<?= base_url(); ?>js/inicio/inicioA.js"></script>
 
 
 <!-- Modal Alta y Actualizacion Cambiar Contraseña-->

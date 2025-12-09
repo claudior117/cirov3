@@ -134,8 +134,8 @@
 
 
 <!-- JS -->
-<script src="<?= base_url(); ?>public/js/ciro.js"></script>  
-<script src="<?= base_url(); ?>public/js/ventas/cuentaPA.js"></script>
+<script src="<?= base_url(); ?>js/ciro.js"></script>  
+<script src="<?= base_url(); ?>js/ventas/cuentaPA.js"></script>
 
 
 <?= $this->endSection(); ?>

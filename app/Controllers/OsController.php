@@ -76,10 +76,10 @@ class OsController extends Controller{
             $r = $MOs->buscarPorId($id);
            $datos = ["arregloItems"=>$r]; 
            
-           $archivo = base_url() . 'public/normas/' . $r->pdf_normas;
+           $archivo = base_url() . 'normas/' . $r->pdf_normas;
            return redirect()->to($archivo);
               
-           // return redirect()->to(base_url().'public/normas/amsterdam.pdf');
+           // return redirect()->to(base_url().'normas/amsterdam.pdf');
             
         }
           else{

@@ -5,6 +5,7 @@ use CodeIgniter\Controller;
 use App\Models\VtaMovModel;
 use App\Models\UsuarioModel;
 use App\Models\RetMesModel;
+use App\Models\AtencionesModel;
 
 
 
@@ -119,6 +120,67 @@ class InformesController extends Controller{
     }
     
    
+
+    public function reporteHisCli($f, $p, $t){
+        
+        //ingresos
+        
+        $q = "SELECT a.*, p.denominacion, p.dni, COALESCE(os.codigo, ip.codigop)   AS codigo,  COALESCE(os.desc_item, ip.itemp)  AS desc_item FROM atenciones a JOIN pacientes p ON a.id_paciente = p.id_paciente LEFT JOIN items_os os ON a.tipo_codigo = 'O' AND a.id_itemos = os.id_itemos ";
+        $q = $q . " LEFT JOIN items_propios ip ON a.tipo_codigo = 'P' AND a.id_itemos = ip.id_itemp ";
+        $q = $q . " where fecha >= " . $f . " and a.id_paciente=" . $p . " and a.id_profesional = " . session('idUsuario');
+        if ($t!='T'){
+            if ($t == 'P'){
+                //sin OS
+                $q = $q . " AND (a.tipo_codigo = '" . $t . "' OR a.id_os = 61)";
+            }else{
+               //con OS 
+                $q = $q . " AND (a.tipo_codigo = '" . $t . "' AND a.id_os <> 61)";    
+            }
+        }
+
+        $q1 = $q .  " order by a.fecha, a.elemento, a.id_atencion";
+        
+       
+        $M = new AtencionesModel;
+        $r1 = $M->getAtenciones($q1);
+        if(session()->has("idUsuario")){ 
+                $data = ["arreglo" => $r1, "fecha" => $f];  
+                return view('prof/historias/reporteHisCli', $data);
+            }    
+    }
+
+    public function reporteEstCue($f, $p, $t){
+        //ingresos
+        $q = "SELECT a.*, p.denominacion, p.dni, COALESCE(os.codigo, ip.codigop)   AS codigo,  COALESCE(os.desc_item, ip.itemp)  AS desc_item FROM atenciones a JOIN pacientes p ON a.id_paciente = p.id_paciente LEFT JOIN items_os os ON a.tipo_codigo = 'O' AND a.id_itemos = os.id_itemos ";
+        $q = $q . " LEFT JOIN items_propios ip ON a.tipo_codigo = 'P' AND a.id_itemos = ip.id_itemp" ;
+        $q = $q . " where fecha >= " . $f . " and a.id_paciente=" . $p . " and a.id_profesional = " . session('idUsuario');
+
+
+        if ($t!='T'){
+            if ($t == 'P'){
+                //sin OS
+                $q = $q . " AND (a.tipo_codigo = '" . $t . "' OR a.id_os = 61)";
+            }else{
+               //con OS 
+                $q = $q . " AND (a.tipo_codigo = '" . $t . "' AND a.id_os <> 61)";    
+            }
+        }
+
+        
+        
+        $q1 = $q .  " order by a.fecha, a.id_atencion";
+
+
+
+        //error_log($q1);
+        $M = new AtencionesModel;
+        $r1 = $M->getAtenciones($q1);
+        if(session()->has("idUsuario")){ 
+                $data = ["arreglo" => $r1, "fecha" => $f];  
+                return view('prof/historias/reporteEstCue', $data);
+            }    
+    }
+    
 
 
 

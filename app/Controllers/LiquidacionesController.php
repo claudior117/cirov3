@@ -7,6 +7,7 @@ use App\Models\LiquidacionesModel;
 use App\Models\LiquidacionesItemsModel;
 use App\Models\OsItemsModel;
 use App\Models\LogsModel;
+use App\Models\AtencionesModel;
 
 
 
@@ -373,6 +374,9 @@ public function devolverLiq(){
                 }    
             }   
 
+
+            
+
             if($r){
                 echo(1);
              }
@@ -543,6 +547,104 @@ public function detalleLiqAjax(){
     }
     }
     
+
+
+    public function Generar(){
+        //genera liquidaciones automaticamente a partir de las atenciones ingresadas
+        if (session()->has("idUsuario")) {
+           
+            $mes = $_POST['nameMes21'];
+            $año = $_POST['nameAño21'];
+            $p =  $año . sprintf("%'.02d\n", $mes);
+            $fechaactual = date("Y-m-d");
+            
+            //buscamos las atenciones pendientes para el profesional que cubre la OS. No liquidamos ni la OS = 61 (sin os) ni los codigos propios
+            $q = "select a.id_itemos, a.id_os, count(*) as cant_items, i.precio from atenciones a INNER JOIN  items_os i ON a.id_itemos = i.id_itemos  where a.id_profesional = " . session("idUsuario") . " and a.estado = 'S' and a.id_os <> 61  and a.tipo_codigo = 'O' group by a.id_os, a.id_itemos order by a.id_os" ;
+            $M = new AtencionesModel;
+            $r = $M->getAtenciones($q);
+            $idos=0;
+            $totalliq = 0;
+            $idLiq = 0;
+            $idLiquidaciones = [];
+            //error_log($q);
+            if (!empty($r)){  
+                //encontro atenciones
+                //recorro todas las atenciones
+                foreach ($r as $fila) {
+                    if($fila['id_os'] != $idos){
+                        //creo la liquidacion
+                        $idos = $fila['id_os'];
+                        $data = ["id_usuario"=> session('idUsuario'),
+                            "periodo"=> intVal($p),
+                            "mes" =>intVal($mes),
+                            "año" => intVal($año),
+                            "id_os" =>intVal($idos),
+                            "id_mov_vta" => 0,
+                            "descuento" =>0,
+                            "id_mov_vta_dto" => 0,
+                            "id_mov_vta_rbo" => 0,
+                            "estado_pago" => 'N',
+                            "id_mov_transf" => 0,
+                            "fecha_rbo" => '2023-01-01',
+                            "fecha_dto" => '2023-01-01',
+                            "fecha_transf" => '2023-01-01',
+                        ];
+                        //inserto la modificacion
+                        $MLiq = new LiquidacionesModel;
+                        $idLiq = $MLiq->agregarLiq($data);
+                        $totalliq +=1;
+                        $idLiquidaciones[] = $idLiq;
+                    }
+                       
+                    if ($idLiq!=0){
+                             //busco el item en la liquidacion
+                            
+                            $MLI = new LiquidacionesItemsModel;
+                            $r3 = $MLI->buscarItemenLiq($idLiq, $fila['id_itemos']);
+                            if ($r3 != null){
+                                //si lo encuentro lo agrego
+                                $data2 = ["iditemliq" => $r3->id_liqitem,
+                                         "cantidad"=> $fila['cant_items']];
+                                $r4 = $MLI->updateItemLiq($data2);
+                           
+                                
+                           
+                            }
+                    }
+                }
+                
+            }
+
+            if ($totalliq !=0){
+                //actualizo totales
+                $M = new LiquidacionesModel;
+                
+                //$MA = new AtencionesModel;
+                
+                foreach ($idLiquidaciones as $liq) {
+                    $r6 = $M->actualizaTotales($liq);
+                 
+                }
+
+            }
+
+
+            //marco como liquidadas todos los codigos propios y la os=61 del profesional
+            $MA = new AtencionesModel;
+            $r7 = $MA->actualizaSinLiq($liq);
+            
+            echo($totalliq);  
+        }
+    else
+    {
+        //sin sesion
+        return redirect()->to(site_url());  
+    }
+    
+    }
+    
+
+
 
 
 

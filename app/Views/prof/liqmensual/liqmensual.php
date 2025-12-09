@@ -104,8 +104,8 @@
 
 
 <!-- JS -->
-<script src="<?= base_url(); ?>public/js/ciro.js"></script>  
-<script src="<?= base_url(); ?>public/js/liqmen/liqmen.js"></script>
+<script src="<?= base_url(); ?>js/ciro.js"></script>  
+<script src="<?= base_url(); ?>js/liqmen/liqmen.js"></script>
 
 <script>
     buscaDatos()

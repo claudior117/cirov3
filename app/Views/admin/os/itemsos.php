@@ -60,6 +60,7 @@
                         <td class="text-end">Coseguro</td>
                         <td>Fecha Actu</td>
                         <td>Interno</td>
+                        <td>Activo</td>
                         
                         <!--<td>$.Deuda</td>-->
                        
@@ -82,7 +83,7 @@
                                 echo("<td class='text-end' style='font-size:15px;'>". number_format($valores['coseguro'],2,".","") . "</td>");
                                 echo("<td>". $valores['fecha_ult_actualizacion']. "</td>");
                                 echo("<td>". $valores['id_itemos']. "</td>");
-                                
+                                echo "<td class='text-center'>" . ($valores['activo'] ? 'Sí' : 'No') . "</td>";
                                 echo("</tr>");
                                          
                             }
@@ -133,7 +134,7 @@
 </main><!-- End #main -->
 
  <!-- JS -->
-<script src="<?= base_url(); ?>public/js/os/itemos.js"></script>
+<script src="<?= base_url(); ?>js/os/itemos.js"></script>
   
 
 

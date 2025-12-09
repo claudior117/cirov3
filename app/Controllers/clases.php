@@ -5,6 +5,8 @@ namespace App\Controllers;
 use App\Models\UsuarioModel;
 use App\Models\OsModel;
 use App\Models\ClientesModel;
+use App\Models\PacientesModel;
+use App\Models\ArancelesPropiosModel;
 
 class clases{
 
@@ -27,14 +29,15 @@ class clases{
     }
 
 
-    public function selectOS($todas='N', $id="idSelOs", $name="nameIdSelOs"){
+    public function selectOS($todas='N', $id="idSelOs", $name="nameIdSelOs", $propiedades=""){
         //$todas tiene "S" si muestra opcion todas o "N"(por defecto) si no la muestra 
         //id
         //name
-        echo('<select id="'.$id.'" name="'. $name . '"class="form-control form-select ms-1">');
+        //propiedades del objeto como required enabled
+        echo('<select id="'.$id.'" name="'. $name . '"class="form-control form-select ms-1 "'. $propiedades . '>');
         
         if ($todas == "S"){
-            echo('<option value="0">**Todas**</option>');
+            echo('<option value="0">**Todas las OS**</option>');
         }
         $MOs = new OsModel;
         $r = $MOs->getOs("select * from os order by os");
@@ -43,6 +46,7 @@ class clases{
         } 
         echo "</select>";       
     }
+
 
     public function selectClientes($mt='S'){
         //mt = muestra todos Si / No  
@@ -91,6 +95,59 @@ class clases{
         }    
         echo "</select>";       
     }
+
+
+    public function selectItemOSyPropios($mt='S', $idos, $idprof=0){
+        //mt = muestra todos Si / No 
+        //idos = obra social de los items
+        //idprof = profesional para items propios
+        if($idprof ==0){
+            $idprof= session("idUsuario"); 
+        }
+
+
+        echo('<select id="idSelIOP" class="form-control form-select ms-1">');
+
+        if ($mt=='S'){
+                echo('<option value="0">**Todos**</option>');
+        }        
+
+        $M = new OsItemsModel;
+        $r = $M->buscarItemsOs();
+        foreach ($r as $row) {
+                echo("<option value='" . $row['id_itemos'] . "'>". $row['codigo'] . " " . $row['desc_item'] . " data-grupo='OS'</option>");
+        }
+        
+        $M = new ArancelesPropiosModel;
+        $q = "select * from items_propios where id_profesional = ". $idprof . " order by codigop";
+        $r = $M->getAranceles($q);
+        foreach ($r as $row) {
+                echo("<option value='" . $row['id_itemp'] . "'>". $row['codigop'] . " " . $row['itemp'] . " data-grupo='PROPIOS'</option>");
+        }
+
+        echo "</select>";       
+    }
+
+
+    public function selectPacientes($todas='N', $id="idSelPac", $name="nameSelPac", $propiedades=""){
+        //$todas tiene "S" si muestra opcion todas o "N"(por defecto) si no la muestra 
+        //id
+        //name
+        //propiedades del objeto como required enabled
+        echo('<select id="'.$id.'" name="'. $name . '"class="form-control form-select ms-1 "'. $propiedades . '>');
+        
+        if ($todas == "S"){
+            echo('<option value="0">**Todos los Pacientes**</option>');
+        }
+        $M = new PacientesModel;
+        $q = "select * from pacientes where id_usuario = " . session('idUsuario') . " order by denominacion";
+        $r = $M->getPacientes($q);
+        foreach ($r as $row) {
+            echo("<option value='" . $row['id_paciente'] . "'>". $row['denominacion'] . "</option>");
+        } 
+        echo "</select>";       
+    }
+
 
 
 

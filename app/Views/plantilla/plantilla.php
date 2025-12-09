@@ -4,42 +4,42 @@
 <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Círculo Odontológico de Rojas V3</title>
+  <title>Versión Testing</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="<?= base_url(); ?>public/lib/templete/Dewi/assets/img/favicon.png" rel="icon">
-  <link href="<?= base_url(); ?>public/lib/templete/Dewi/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="<?= base_url(); ?>lib/templete/Dewi/assets/img/favicon.png" rel="icon">
+  <link href="<?= base_url(); ?>lib/templete/Dewi/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Boostrap -->
-  <link href="<?= base_url(); ?>public/lib/templete/Dewi/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?= base_url(); ?>lib/templete/Dewi/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="<?= base_url(); ?>public/lib/templete/Dewi/assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="<?= base_url(); ?>public/lib/templete/Dewi/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="<?= base_url(); ?>public/lib/templete/Dewi/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="<?= base_url(); ?>public/lib/templete/Dewi/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="<?= base_url(); ?>public/lib/templete/Dewi/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="<?= base_url(); ?>public/lib/templete/Dewi/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="<?= base_url(); ?>lib/templete/Dewi/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="<?= base_url(); ?>lib/templete/Dewi/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="<?= base_url(); ?>lib/templete/Dewi/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="<?= base_url(); ?>lib/templete/Dewi/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="<?= base_url(); ?>lib/templete/Dewi/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="<?= base_url(); ?>lib/templete/Dewi/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
  
   <!-- Template Main CSS File -->
-  <link href="<?= base_url(); ?>public/lib/templete/Dewi/assets/css/style.css" rel="stylesheet">
+  <link href="<?= base_url(); ?>lib/templete/Dewi/assets/css/style.css" rel="stylesheet">
 
 <!-- SweetAlert2 -->
-<link href="<?= base_url(); ?>public/lib/sweetalert2/sweetalert2.min.css" rel="stylesheet">
-<script src="<?= base_url(); ?>public/lib/sweetalert2/sweetalert2.min.js"></script>
+<link href="<?= base_url(); ?>lib/sweetalert2/sweetalert2.min.css" rel="stylesheet">
+<script src="<?= base_url(); ?>lib/sweetalert2/sweetalert2.min.js"></script>
 
 
 <!-- ESTILOS PROPIOS -->
-<link href="<?= base_url(); ?>public/css/stylemc.css" rel="stylesheet"> 
-<link href="<?= base_url(); ?>public/css/stylev3.css" rel="stylesheet">
+<link href="<?= base_url(); ?>css/stylemc.css" rel="stylesheet"> 
+<link href="<?= base_url(); ?>css/stylev3.css" rel="stylesheet">
 
 <!-- JqueryS -->
-<script src="<?= base_url(); ?>public/lib/jquery/jquery-3.6.3.min.js"></script>
+<script src="<?= base_url(); ?>lib/jquery/jquery-3.6.3.min.js"></script>
 
 
 
@@ -100,8 +100,8 @@ display: none !important;
  <div class="container d-flex align-items-center justify-content-between">
 
  
-   <a href="#" class="logo"><img src="<?= base_url(); ?>public/img/circulo.png" alt="" class="img-fluid"></a> 
-   <h1 class="logo"><a href="#">VERSIÓN 3 (TEST)  </a></h1><br> 
+   <a href="#" class="logo"><img src="<?= base_url(); ?>img/circulo.png" alt="" class="img-fluid"></a> 
+   <h1 class="logo"><a href="#">VERSIÓN TESTING  </a></h1><br> 
    
    
    <!-- Uncomment below if you prefer to use an image logo -->
@@ -111,25 +111,24 @@ display: none !important;
    <nav id="navbar" class="navbar">
      <ul>
        <li><a class="nav-link scrollto active" href="<?= site_url();?>InicioIntra" ?>Inicio</a></li>
-       <li class="dropdown"><a href="#"><span>Pacientes</span> <i class="bi bi-chevron-down"></i></a>
-         <ul>
-            <li><a href="<?=site_url();?>PacientesP">Padrón Pacientes</a></li>
-            <li><a href="<?=site_url();?>PacientesP">Códigos Propios</a></li>
-            <li><a href="<?=site_url();?>AtencionesP">Carga Atenciones</a></li>
-            <li><a href="<?=site_url();?>OdontogramaP">Odontograma</a></li>
-            <li><a href="<?=site_url();?>HistoriaP">Historia Clínica</a></li>
-            
               
-          </ul>
-       </li>
-       
        <li class="dropdown"><a href="#"><span>Aranceles</span> <i class="bi bi-chevron-down"></i></a>
          <ul>
             <li><a href="<?=site_url();?>MinimosP">Aranceles Mínimos</a></li>
             <li><a href="<?=site_url();?>AdminOSP">Aranceles OS</a></li>
+            <li><a href="<?=site_url();?>ArancelesP">Aranceles Propios</a></li>
             </ul>
        </li>
        
+       <li class="dropdown"><a href="#"><span>Pacientes</span> <i class="bi bi-chevron-down"></i></a>
+         <ul>
+            <li><a href="<?=site_url();?>PacientesP">Pacientes</a></li>
+            <li><a href="<?=site_url();?>AtencionesP">Carga Atenciones</a></li>
+            <li><a href="<?=site_url();?>HistoriaP">Historia Clínica</a></li>
+          </ul>
+       </li>
+
+
        <li class="dropdown"><a href="#"><span>Liquidaciones</span> <i class="bi bi-chevron-down"></i></a>
          <ul>
             <li><a href="<?= site_url();?>Liquidaciones">Liquidaciones</a></li>
@@ -154,9 +153,14 @@ display: none !important;
 
    <!-- .navbar -->
 
+
  </div>
 </header><!-- End Header -->
-
+<div class="bg-warning"> 
+<marquee behavior="scroll" direction="left" class="bg-warning">
+  VERSIÓN TESTING
+</marquee>
+</div>
 
 <!-- CONTENIDO -->
 
@@ -203,18 +207,18 @@ display: none !important;
 
 
 <!-- Vendor JS Files -->
-<script src="<?= base_url(); ?>public/lib/templete/Dewi/assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="<?= base_url(); ?>public/lib/templete/Dewi/assets/vendor/aos/aos.js"></script>
-  <script src="<?= base_url(); ?>public/lib/templete/Dewi/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="<?= base_url(); ?>public/lib/templete/Dewi/assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="<?= base_url(); ?>public/lib/templete/Dewi/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="<?= base_url(); ?>public/lib/templete/Dewi/assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="<?= base_url(); ?>public/lib/templete/Dewi/assets/vendor/php-email-form/validate.js"></script>
+<script src="<?= base_url(); ?>lib/templete/Dewi/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="<?= base_url(); ?>lib/templete/Dewi/assets/vendor/aos/aos.js"></script>
+  <script src="<?= base_url(); ?>lib/templete/Dewi/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="<?= base_url(); ?>lib/templete/Dewi/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="<?= base_url(); ?>lib/templete/Dewi/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="<?= base_url(); ?>lib/templete/Dewi/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="<?= base_url(); ?>lib/templete/Dewi/assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="<?= base_url(); ?>public/lib/templete/Dewi/assets/js/main.js"></script>
+  <script src="<?= base_url(); ?>lib/templete/Dewi/assets/js/main.js"></script>
   <!--  JS Globales -->
-  <script src="<?= base_url(); ?>public/js/ciro.js"></script>
+  <script src="<?= base_url(); ?>js/ciro.js"></script>
 
 
 

@@ -130,8 +130,8 @@
 
 
 <!-- JS -->
-<script src="<?= base_url(); ?>public/js/ciro.js"></script>
-<script src="<?= base_url(); ?>public/js/comprobantes/vercomprobante.js"></script>
+<script src="<?= base_url(); ?>js/ciro.js"></script>
+<script src="<?= base_url(); ?>js/comprobantes/vercomprobante.js"></script>
 
 
 

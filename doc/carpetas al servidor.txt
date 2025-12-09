@@ -14,4 +14,4 @@ Archivos a modificar entre local y servidor
 app/config/app.php
 app/config/database.php
 
-public/js/ciro.js
+js/ciro.js

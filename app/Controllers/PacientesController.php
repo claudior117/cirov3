@@ -16,7 +16,7 @@ class PacientesController extends Controller{
   public function Index()
     {
         if (session()->has("idUsuario") && session('rol')=='A') {
-            return view('admin/pacientes/index');
+            return view('prof/pacientes/index');
         }
           else{
               return redirect()->to(site_url());  
@@ -44,38 +44,24 @@ class PacientesController extends Controller{
          $de = $_POST['nameDe'];
          $di = $_POST['nameDi'];
          $lo = $_POST['nameLo'];
-         $ci = $_POST['nameSelCondIva'];
+         $ci = $_POST['nameSelOS2'];
          $cu = $_POST['nameCu'];
          $te = $_POST['nameTe'];
          $em = $_POST['nameEm'];
-
-         //los chekbox no se envian por post cuando estan seleccionados
-         $EP = isset($_POST['nameEP']) ? 1 : 0;
-         $EC = isset($_POST['nameEC']) ? 1 : 0;
-         $EA = isset($_POST['nameEA']) ? 1 : 0;
-         $EH = isset($_POST['nameEH']) ? 1 : 0;
-         $ET = isset($_POST['nameET']) ? 1 : 0;
-         
-         echo($EP);
+         $fn = $_POST['nameFN'];
          
 
-         
-
-         //armo estructura de datos
+                  //armo estructura de datos
          $data = ["denominacion" => $de,
             "direccion" =>$di,
             "localidad" =>$lo,
-            "id_condiva" =>$ci,
-            "cuit" =>$cu,
+            "id_os" =>$ci,
+            "dni" =>$cu,
             "te" =>$te,
             "email" =>$em,
-            "esproveedor" =>$EP,
-            "escliente" =>$EC,
-            "esacopiador" =>$EA,
-            "eschofer" =>$EH,
-            "estransporte" =>$ET,
-            "baja" => 0,
-            "fecha_baja" => date("Y-m-d") 
+            "id_usuario" =>session("idUsuario"),
+            "tipo"=>'T',
+            "fecha_nac"=> $fn
         ];
        
         //definoi accion
@@ -99,19 +85,29 @@ class PacientesController extends Controller{
     }
 
 public function alta($d){
-        $M = new RelacionesModel;
-        $r2 = $M->agregar($d);
-        $r4 = $M->getUltimoId();
-        if ($r2 != 0){
-            $datos = ["mensaje"=>"Se agregó nueva Relacion  Id: ". $r4->lastId . " " . $d['denominacion'], "tipo"=>"IMPORTANTE", "fecha"=>Date("Y-m-d h:i:s"), "id_usuario"=>session("idUsuario"), "duracion"=>7] ; 
-            $Mmsj = new MensajesModel;
-            $Mmsj ->insertarMensaje($datos);
-        }
-         echo $r2;
+        $M = new PacientesModel;
+
+        $q = "select dni from pacientes where dni = " . $d['dni'] . " and id_usuario= " . session("idUsuario");
+        $r5 = $M->getPacientes($q);
+        if (empty($r5)) {  
+                //dni no existe se puede agregar
+                $r2 = $M->agregar($d);
+                $r4 = $M->getUltimoId();
+                if ($r2 != 0){
+                    $datos = ["mensaje"=>"Se agregó nuevo Paciente  Id: ". $r4->lastId . " " . $d['denominacion'], "tipo"=>"IMPORTANTE", "fecha"=>Date("Y-m-d h:i:s"), "id_usuario"=>session("idUsuario"), "duracion"=>7] ; 
+                    $Mmsj = new MensajesModel;
+                    $Mmsj ->insertarMensaje($datos);
+                }
+                echo $r2;
+            }else
+            {
+                //el dni existe, no agrego y mando 9 para mostrar mensaje
+                echo "9"; 
+            }        
 }
 
 public function modifica($d, $id){
-        $M = new RelacionesModel;
+        $M = new PacientesModel;
         $r2 = $M->modificar($d, $id);
         if ($r2 != 0){
             $datos = ["mensaje"=>"Se modificó Relacion  Id: ". $id . " UP:" . $d['denominacion'], "tipo"=>"IMPORTANTE", "fecha"=>Date("Y-m-d h:i:s"), "id_usuario"=>session("idUsuario"), "duracion"=>7] ; 
@@ -122,7 +118,7 @@ public function modifica($d, $id){
 }
 
 public function elimina($id){
-        $M = new RelacionesModel;
+        $M = new PacientesModel;
         $r2 = $M->eliminar($id);
         if ($r2 != 0){
             $datos = ["mensaje"=>"Se eliminó Relacion  Id: ". $id . " " . $d['denominacion'], "tipo"=>"IMPORTANTE", "fecha"=>Date("Y-m-d h:i:s"), "id_usuario"=>session("idUsuario"), "duracion"=>7] ; 
@@ -134,31 +130,10 @@ public function elimina($id){
  
 
 
-
-public function MostrarAjax()
-{
-    if (session()->has("idUsuario")) {
-        
-        $M = new RelacionesModel;
-        $q = "select * from relaciones r inner join condiva ci on r.id_condiva = ci.id_condiva  order by denominacion";
-        $r = $M->get($q);
-        if (count($r)>0){
-            echo json_encode($r);
-        }
-
-      }
-      else{
-          return redirect()->to(site_url());  
-      }
-}
-
-
-
-
 public function consultarIdAjax(){
     if (session()->has("idUsuario")) {
         $id = $_POST['id'];
-        $M = new RelacionesModel;
+        $M = new PacientesModel;
         $r = $M->buscarPorId($id); 
         if (isset($r)){
             echo json_encode($r);
@@ -172,11 +147,40 @@ public function consultarIdAjax(){
 }    
 
 
-public function consultarDNIAjax(){
+public function consultarAjax(){
+    //tipo 1 todos // 2 por nombre //3 por dni
     if (session()->has("idUsuario")) {
         $dni = $_POST['dni'];
+        $nombre = $_POST['nombre'];
+        $idos = $_POST['os'];
+        
+        $q = "select * from pacientes p INNER JOIN os o ON  p.id_os = o.id_os where p.id_usuario = " . session("idUsuario") ;
+    
+        if (!empty($dni)){
+            $q = $q . " and CONVERT(p.dni, CHAR) LIKE '" . $dni ."%'";
+        }
+
+        if (!empty($nombre)){
+            $q = $q . " and UPPER(p.denominacion) like UPPER('%".$nombre."%')";
+        }
+
+        if ($idos > 0){
+            $q = $q . " and p.id_os= " . $idos;
+        
+        }
+        
+        /*
+        switch ($tipo) {
+            case 2:
+             $q = $q . " and UPPER(p.denominacion) like UPPER('%".$nombre."%')";
+             break;
+            case 3:
+             $q = $q . " and CONVERT(p.dni, CHAR) LIKE '" . $dni ."%'";
+             break;
+            }           
+        */    
         $M = new PacientesModel;
-        $r = $M->buscarPorDNI($dni); 
+        $r = $M->getPacientes($q); 
         if (isset($r)){
             echo json_encode($r);
         }

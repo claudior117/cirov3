@@ -112,8 +112,8 @@
 
 
 <!-- JS -->
-<script src="<?= base_url(); ?>public/js/ciro.js"></script>  
-<script src="<?= base_url(); ?>public/js/pagos/transf.js"></script>
+<script src="<?= base_url(); ?>js/ciro.js"></script>  
+<script src="<?= base_url(); ?>js/pagos/transf.js"></script>
 
 <script>
     buscaDatos()

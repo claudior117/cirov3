@@ -76,7 +76,7 @@
             <div class="botones-main">
                 <i class="bi bi-whatsapp"></i>
                 <h5>Soporte Whatsapp</h5>
-                <h6>+54 9 2475413195 (Valentín)</h6>
+                <h6>+54 9 2475413195 </h6>
     </div>
 <section>          
 
@@ -123,8 +123,8 @@
 
 <!-- JS -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="<?= base_url(); ?>public/js/ciro.js"></script>
-<script src="<?= base_url(); ?>public/js/inicio/inicio.js"></script>
+<script src="<?= base_url(); ?>js/ciro.js"></script>
+<script src="<?= base_url(); ?>js/inicio/inicio.js"></script>
 
 
 

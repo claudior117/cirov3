@@ -51,7 +51,7 @@ class Inicio extends BaseController
                if($r[0]['antiguedad_contraseña'] <= 100){
                 //creo la variable de sesion
                 $varS = [
-                    'usuario' => $r[0]['nombre_mostrar'],
+                    'usuario' => $r[0]['nombre'],
                     'rol' => $r[0]['tipo_usuario'],
                     'idUsuario' => $r[0]['id_usuario']
                 ];

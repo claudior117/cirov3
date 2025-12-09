@@ -13,10 +13,9 @@ class LiquidacionesItemsModel extends Model{
     public function updateItemLiq($d){
 
     $db = db_connect();
-    $q = "UPDATE liq_items set  cantidad = " . $d['cantidad'] . ", importe = " . $d['cantidad'] . " * pu, fecha_ult_modificacion='" . date('Y-m-d')   . "' where id_liqitem = " . $d['iditemliq'];
+    $q = "UPDATE liq_items set  cantidad = " . $d['cantidad'] . ",  importe = " . $d['cantidad'] . " * pu, fecha_ult_modificacion='" . date('Y-m-d')   . "' where id_liqitem = " . $d['iditemliq'];
     $db->query($q);
 
-   
     }
 
 

@@ -186,8 +186,8 @@
 </main><!-- End #main -->
 
  <!-- JS -->
- <script src="<?= base_url(); ?>public/js/ciro.js"></script>
- <script src="<?= base_url(); ?>public/js/liq/itemsliq.js"></script>
+ <script src="<?= base_url(); ?>js/ciro.js"></script>
+ <script src="<?= base_url(); ?>js/liq/itemsliq.js"></script>
   
 
 
