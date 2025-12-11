@@ -29,18 +29,27 @@ class clases{
     }
 
 
-    public function selectOS($todas='N', $id="idSelOs", $name="nameIdSelOs", $propiedades=""){
+    public function selectOS($todas='N', $id="idSelOs", $name="nameIdSelOs", $propiedades="", $manual=2){
         //$todas tiene "S" si muestra opcion todas o "N"(por defecto) si no la muestra 
         //id
         //name
         //propiedades del objeto como required enabled
+        //manual: Muestra las OS que permiten liq manual(1), solo liq por atenciones(0) o  todas(2)
         echo('<select id="'.$id.'" name="'. $name . '"class="form-control form-select ms-1 "'. $propiedades . '>');
         
         if ($todas == "S"){
             echo('<option value="0">**Todas las OS**</option>');
         }
+
+        $q = "select * from os ";
+        if ($manual != 2 ){
+            $q=$q . " where permite_liq_manual = " . $manual ;
+        }
+        $q = $q . " order by os ";
+
+
         $MOs = new OsModel;
-        $r = $MOs->getOs("select * from os order by os");
+        $r = $MOs->getOs($q);
         foreach ($r as $row) {
             echo("<option value='" . $row['id_os'] . "'>". $row['os'] . "</option>");
         } 

@@ -206,6 +206,7 @@
 
 
 <!-- JS -->
+<script>var u = "<?= base_url('') ?>";</script>
 <script src="<?= base_url(); ?>js/ciro.js"></script>
 <script src="<?= base_url(); ?>js/ventas/factLiq.js"></script>
 

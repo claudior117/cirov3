@@ -6,11 +6,11 @@ use CodeIgniter\Model;
 class OsModel extends Model{
     protected $table      = 'os';
     protected $primaryKey = 'id_os';
-    protected $allowedFields = ['os', 'fecha_ult_actu_precios', 'pdf_normas', 'factura_el_profesional'];
+    protected $allowedFields = ['os', 'fecha_ult_actu_precios', 'pdf_normas', 'factura_el_profesional', 'permite_liq_manual'];
 
 
     public function getOs($q){
-        //recupera los profesionales 
+        
         $db = db_connect();
         $cons = $db->query($q);
         return $cons->getResultArray();

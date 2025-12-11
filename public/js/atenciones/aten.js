@@ -388,7 +388,7 @@ function agregarAte() {
  
  if (verificaAgregar()){
     var u = site_url() + "AgregarAtencionesAxP"
-    
+   
     var idp = $('#idIdP').val()
     var f = $('#idFec').val()
     var idos = $('#idSelOs').val()

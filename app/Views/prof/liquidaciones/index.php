@@ -163,7 +163,7 @@
                         <div class="mb-2">
                             <label for="idSelOS2" class="form-label">Obra Social</label>
                             <?php
-                                $s->selectOs("N", "idSelOS2", "nameSelOS2");
+                                $s->selectOs("N", "idSelOS2", "nameSelOS2",null,1);
                             ?>
                             <div><p class="text-danger"><small><?=session('errors.nameSelOS2');?></small></p> </div>
          

@@ -71,8 +71,7 @@
     <div class="hero-container" data-aos="fade-up" data-aos-delay="150">
       <!--<h1>Círculo Odontologico de Rojas </h1>-->
       <a href="inicio" class="logo"><img src="<?= base_url(); ?>img/circulo.png" alt="" class="img-fluid"></a> 
-      <h2 style="margin-top: 15px;">Software de Liquidación Obras Sociales V3 (Test) </h2>
-      <h3 style="margin-top: 15px; color:white;">(Esta versión es solo de testing, usa solo datos de prueba sin validez que serán eliminados)  </h3>
+      <h2 style="margin-top: 15px;">Software de Liquidación Obras Sociales V3</h2>
      
       <div class="d-flex">
         <button type="button" class="btn btn-get-started scrollto" data-bs-toggle="modal" data-bs-target="#modal_inicio_sesion">Inicio Sesion</button>
@@ -80,9 +79,7 @@
     </div>
 
     <div class="bg-warning"> 
-    <marquee behavior="scroll" direction="left" class="bg-warning">
-      VERSIÓN TESTING
-    </marquee>
+    
     </div>
   </section><!-- End Hero -->
 

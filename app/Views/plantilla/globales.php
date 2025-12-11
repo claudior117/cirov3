@@ -1,4 +1,4 @@
 <?php
-  $Gversion="V3.06.01 012";
-  $GfechaActu ="09-12-2025";
+  $Gversion="V3.07.02 014";
+  $GfechaActu ="11-12-2025";
 ?>

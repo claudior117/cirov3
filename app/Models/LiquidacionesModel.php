@@ -311,13 +311,28 @@ public function agregarItemsLiqNueva($iL, $idos){
 
 public function borrarLiq($iL){
     //busco todos los items de la os y los agrego a la liuquidacion
-    $s = "DELETE  liquidaciones, liq_items from liquidaciones INNER JOIN liq_items ON id_liq = id_liquidacion  where id_liq = $iL and id_usuario = " . session("idUsuario") . " and estado = 'B'";
+    //$s = "DELETE  liquidaciones, liq_items from liquidaciones LEFT JOIN liq_items ON id_liq = id_liquidacion  where id_liq = $iL and id_usuario = " . session("idUsuario") . " and estado = 'B'";
+    //$db = db_connect();
+    //$q = $db->query($s);
+
     $db = db_connect();
-    $q = $db->query($s);
+
+    $sql = "DELETE liquidaciones, liq_items 
+            FROM liquidaciones 
+            LEFT JOIN liq_items ON id_liq = id_liquidacion  
+            WHERE id_liq = ? 
+              AND id_usuario = ? 
+              AND estado = 'B'";
+    
+    $q = $db->query($sql, [$iL, session("idUsuario")]);
+
+
+    $sql = "UPDATE atenciones SET id_liquidacion=0, estado='S' WHERE id_liquidacion = ?";
+    $q = $db->query($sql, [$iL]);
 
     //actualizo si tiene atenciones
-    $s ="UPDATE atenciones  SET id_liquidacion=0, estado='S' where id_liquidacion=". $iL;
-    $q = $db->query($s);
+    //$s ="UPDATE atenciones  SET id_liquidacion=0, estado='S' where id_liquidacion=". $iL;
+    //$q = $db->query($s);
 
     $datos = ["id_tipolog"=>3, "fecha"=>date("Y-m-d H:i:s"), "id_usuario"=>session('idUsuario'), "tabla"=>"Liquidaciones", "id_registro"=>$iL] ; 
     $MLog = new LogsModel;

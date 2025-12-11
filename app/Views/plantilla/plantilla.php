@@ -4,7 +4,7 @@
 <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Versión Testing</title>
+  <title>Liquidación Obras Sociales</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -101,7 +101,7 @@ display: none !important;
 
  
    <a href="#" class="logo"><img src="<?= base_url(); ?>img/circulo.png" alt="" class="img-fluid"></a> 
-   <h1 class="logo"><a href="#">VERSIÓN TESTING  </a></h1><br> 
+   <h1 class="logo"><a href="#">Liquidación Obras Sociales </a></h1><br> 
    
    
    <!-- Uncomment below if you prefer to use an image logo -->
@@ -157,9 +157,7 @@ display: none !important;
  </div>
 </header><!-- End Header -->
 <div class="bg-warning"> 
-<marquee behavior="scroll" direction="left" class="bg-warning">
-  VERSIÓN TESTING
-</marquee>
+
 </div>
 
 <!-- CONTENIDO -->

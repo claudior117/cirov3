@@ -50,12 +50,16 @@ class OsController extends Controller{
 
 
     //Consultas todas las OS
-    public function getOs()
+    public function getOs($q="defaul")
     {
         
         if (session()->has("idUsuario")) {
             $MOs = new OsModel;
-            $r = $MOs->getOs("select os.*, denominacion from os, clientes where os.id_cliente = clientes.id_cliente order by os");
+
+            if($q="defaul"){
+               $q =  "select os.*, denominacion from os, clientes where os.id_cliente = clientes.id_cliente order by os";
+            }
+            $r = $MOs->getOs($q);
             if (count($r)>0){
                 echo json_encode($r);
             }
@@ -64,6 +68,9 @@ class OsController extends Controller{
               return redirect()->to(site_url());  
           }
     }
+
+
+
 
 
     //Muestra Pdf de Normas de Trabajo

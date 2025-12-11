@@ -70,7 +70,10 @@ function facturar(){
     
 
 
-    u = site_url() + "EmitirFacturaLiq"
+    
+     u = u + "/EmitirFacturaLiq"
+
+   
     $.ajax({
             url: u,
             type: "POST",
